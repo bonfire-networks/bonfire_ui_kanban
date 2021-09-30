@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanDataCase do
+defmodule Bonfire.Kanban.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,12 +10,12 @@ defmodule Bonfire.KanbanDataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Bonfire.KanbanDataCase, async: true`, although
+  by setting `use Bonfire.Kanban.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
   use ExUnit.CaseTemplate
-  import Bonfire.KanbanIntegration
+  import Bonfire.Kanban.Integration
 
   using do
     quote do
@@ -23,7 +23,7 @@ defmodule Bonfire.KanbanDataCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Bonfire.KanbanDataCase
+      import Bonfire.Kanban.DataCase
     end
   end
 

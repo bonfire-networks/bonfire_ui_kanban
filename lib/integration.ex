@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanIntegration do
+defmodule Bonfire.Kanban.Integration do
 
   def repo, do: Bonfire.Common.Config.get!(:repo_module)
 

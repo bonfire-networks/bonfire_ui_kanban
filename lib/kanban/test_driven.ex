@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanTestDrivenCoordination do
+defmodule Bonfire.Kanban.TestDrivenCoordination do
   @moduledoc false
   use GenServer
 

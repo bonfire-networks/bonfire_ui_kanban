@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanDataHelpers do
+defmodule Bonfire.Kanban.DataHelpers do
 
   # import ExUnit.Assertions
   # alias Bonfire.KanbanFake

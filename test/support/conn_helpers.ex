@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanTest.ConnHelpers do
+defmodule Bonfire.Kanban.Test.ConnHelpers do
 
   import ExUnit.Assertions
   import Plug.Conn

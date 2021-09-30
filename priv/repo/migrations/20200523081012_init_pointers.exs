@@ -1,4 +1,4 @@
-defmodule Bonfire.KanbanRepo.Migrations.InitPointers do
+defmodule Bonfire.Kanban.Repo.Migrations.InitPointers do
   use Ecto.Migration
   import Pointers.Migration
   import Pointers.ULID.Migration
