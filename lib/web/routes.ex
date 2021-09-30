@@ -3,9 +3,24 @@ defmodule Bonfire.Kanban.Web.Routes do
 
     quote do
 
+       # pages anyone can view
+       scope "/kanban", Bonfire.Kanban do
+        pipe_through :browser
+
+      end
+
+      # pages you need an account to view
+      scope "/kanban", Bonfire.Kanban do
+        pipe_through :browser
+        pipe_through :account_required
+
+      end
+
       # pages anyone can view
       scope "/kanban", Bonfire.Kanban do
         pipe_through :browser
+        pipe_through :user_required
+
         live "/", Web.HomeLive
         # live "/list/:id", ProcessLive, as: ValueFlows.Process
         # live "/lists", ProcessesLive
