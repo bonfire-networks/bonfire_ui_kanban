@@ -1,4 +1,6 @@
-<div class="p-2 m-1 my-2 bg-white border-b rounded shadow-sm cursor-pointer border-grey hover:bg-gray-100">
+<div 
+  :on-click="show" phx-card_id="test"
+  class="p-2 m-1 my-2 bg-white border-b rounded shadow-sm cursor-pointer border-grey hover:bg-gray-100">
   <!-- LABEL -->
   <div class="w-12 h-2 p-1 mb-1 bg-green-400 rounded-full"></div>
   <p>Remove analytics code</p>

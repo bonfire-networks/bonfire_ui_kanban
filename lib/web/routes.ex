@@ -20,8 +20,9 @@ defmodule Bonfire.Kanban.Web.Routes do
       scope "/kanban", Bonfire.Kanban do
         pipe_through :browser
         pipe_through :user_required
-
         live "/", Web.HomeLive
+        live "/:id", Web.BoardLive
+        live "/:id/c/:card_id", Web.BoardLive
         # live "/list/:id", ProcessLive, as: ValueFlows.Process
         # live "/lists", ProcessesLive
         # live "/task/:id", TaskLive, as: ValueFlows.Planning.Intent
