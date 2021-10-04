@@ -1,0 +1,25 @@
+<div class="flex items-top">
+  <div class="flex-1">
+    <div class="flex items-center space-x-3">
+      <div>
+        <div class="text-xl font-bold text-gray-800">
+          test
+        </div>
+        <span class="flex mt-1 text-sm text-gray-600">
+          {l "Task in"}
+          <LivePatch
+          to={"/list/"<> "test"}
+          class="ml-1 underline inline_flex">
+          test
+          </LivePatch>
+        </span>
+      </div>
+    </div>
+  </div>
+  <LivePatch
+    to={"/kanban/test"}>
+    <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-gray-200">
+      <Solid.XIcon class="w-5 h-5 text-gray-500" />
+    </span>
+  </LivePatch>
+</div>

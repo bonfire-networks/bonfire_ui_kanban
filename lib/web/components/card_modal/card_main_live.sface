@@ -1,0 +1,40 @@
+<div class="flex-1 mr-4">
+  <div class="flex space-x-2 items-top">
+    <div class="flex-1">
+      <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">Assigned to</div>
+      <div class="flex items-center space-x-1">
+        <div class="bg-gray-200 rounded-full w-7 h-7"></div>
+        <div class="flex items-center bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 w-7 h-7 place-content-center">
+          <Outline.PlusIcon class="w-5 h-5 text-gray-600" />
+        </div>
+      </div>
+    </div>
+    <div class="flex-1">
+      <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "labels"}</div>
+      <div class="flex items-center space-x-2">
+          <div class="flex items-center px-3 text-xs font-bold text-white bg-green-400 rounded-sm h-7 place-content-center"><span>Design</span></div>
+          <div class="flex items-center px-3 text-xs font-bold text-white bg-blue-400 rounded-sm h-7 place-content-center"><span>Technology</span></div>
+      </div>
+    </div>
+    <div class="flex-1">
+      <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "due date"}</div>
+      <div class="inline-flex items-center px-3 text-xs text-gray-700 bg-gray-200 rounded-sm h-7"><span>Jul 7, 2021</span></div>
+    </div>
+  </div>
+  <div class="mt-6">
+    <div class="flex items-center space-x-2">
+      <Outline.MenuAlt2Icon class="w-4 h-4 text-gray-700" />
+      <div class="text-sm font-semibold text-gray-700 capitalize">{l "description"}</div>
+    </div>
+    <div class="mt-1 text-sm prose-sm prose text-gray-700">Nel caso in cui, per la cottura del chapati, utilizzaste la tradizionale pentola in ferro chiamata tawa, i tempi di cottura saranno decisamente inferiori; in questo caso, infatti, basterà, dopo aver fatto scaldare molto bene la pentola.</div>
+  </div>
+
+  <div class="mt-6">
+    <div class="flex items-center space-x-2">
+      <Outline.ChatAlt2Icon class="w-4 h-4 text-gray-700" />
+      <div class="text-sm font-semibold text-gray-700 capitalize">{l "Discussion"}</div>
+    </div>
+  </div>
+
+
+</div>

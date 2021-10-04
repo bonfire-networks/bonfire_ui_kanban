@@ -27,131 +27,15 @@
       x-description="Modal panel, show/hide based on modal state." 
       class="mx-auto mt-12 overflow-hidden text-left align-bottom transition-all transform bg-gray-100 rounded-lg shadow-xl w-center">
       
-          <section class="p-4" >
-          <!-- Card Title and escape -->
-            <div class="flex items-top">
-              <div class="flex-1">
-                <div class="flex items-center space-x-3">
-                  <div>
-                    <div class="text-xl font-bold text-gray-800">
-                      test
-                    </div>
-                    <span class="flex mt-1 text-sm text-gray-600">
-                      {l "Task in"}
-                      <LivePatch
-                      to={"/list/"<> "test"}
-                      class="ml-1 underline inline_flex">
-                      test
-                      </LivePatch>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <LivePatch
-                to={"/kanban/test"}>
-                <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-gray-200">
-                  <Solid.XIcon class="w-5 h-5 text-gray-500" />
-                </span>
-              </LivePatch>
-            </div>
-            <!-- Card layout -->
-            <div class="flex mt-4">
-              <div class="flex-1 mr-4">
-                <div class="flex space-x-2 items-top">
-                  <div class="flex-1">
-                    <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">Assigned to</div>
-                    <div class="flex items-center space-x-1">
-                      <div class="bg-gray-200 rounded-full w-7 h-7"></div>
-                      <div class="flex items-center bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 w-7 h-7 place-content-center">
-                        <Outline.PlusIcon class="w-5 h-5 text-gray-600" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1">
-                    <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "labels"}</div>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex items-center px-3 text-xs font-bold text-white bg-green-400 rounded-sm h-7 place-content-center"><span>Design</span></div>
-                        <div class="flex items-center px-3 text-xs font-bold text-white bg-blue-400 rounded-sm h-7 place-content-center"><span>Technology</span></div>
-                    </div>
-                  </div>
-                  <div class="flex-1">
-                    <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "due date"}</div>
-                    <div class="inline-flex items-center px-3 text-xs text-gray-700 bg-gray-200 rounded-sm h-7"><span>Jul 7, 2021</span></div>
-                  </div>
-                </div>
-                <div class="mt-6">
-                  <div class="flex items-center space-x-2">
-                    <Outline.MenuAlt2Icon class="w-4 h-4 text-gray-700" />
-                    <div class="text-sm font-semibold text-gray-700 capitalize">{l "description"}</div>
-                  </div>
-                  <div class="mt-1 text-sm prose-sm prose text-gray-700">Nel caso in cui, per la cottura del chapati, utilizzaste la tradizionale pentola in ferro chiamata tawa, i tempi di cottura saranno decisamente inferiori; in questo caso, infatti, basterà, dopo aver fatto scaldare molto bene la pentola.</div>
-                </div>
-
-                <div class="mt-6">
-                  <div class="flex items-center space-x-2">
-                    <Outline.ChatAlt2Icon class="w-4 h-4 text-gray-700" />
-                    <div class="text-sm font-semibold text-gray-700 capitalize">{l "Discussion"}</div>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="flex flex-col space-y-8" style="width: 200px">
-                <div class="">
-                  <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "Add to card"}</div>
-                  <div class="flex flex-col space-y-2">
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.UserAddIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "join"}
-                      </span>
-                    </div>
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.TagIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "label"}
-                      </span>
-                    </div>
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.CheckCircleIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "checklist"}
-                      </span>
-                    </div>
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.CalendarIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "dates"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "Actions"}</div>
-                  <div class="flex flex-col space-y-2">
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.ArrowRightIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "move"}
-                      </span>
-                    </div>
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.EyeIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "watch"}
-                      </span>
-                    </div>
-                    <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-                      <Outline.ArchiveIcon class="w-4 h-4 text-gray-600" />
-                      <span class="text-gray-700 capitalize">
-                        {l "archive"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        <section class="p-4" >
+        <!-- Card Title and escape -->
+          <Bonfire.Kanban.Web.CardHeroLive />
+          <!-- Card layout -->
+          <div class="flex mt-4">
+            <Bonfire.Kanban.Web.CardMainLive />
+            <Bonfire.Kanban.Web.CardSidebarLive />
+          </div>
+        </section>
       
     </div>
   </div>
