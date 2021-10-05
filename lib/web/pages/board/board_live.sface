@@ -1,4 +1,6 @@
 <div  
+  phx-hook="Drag"
+  id="drag"
   x-data="{ open_panel: false }" 
   @keydown.window.escape="open_panel = false"  
   class="relative flex flex-col flex-grow -mt-4 overflow-y-none">
