@@ -6,8 +6,11 @@
     <div class="absolute top-0 bottom-0 left-0 right-0">
       <div class="relative flex flex-col h-full">
         <div class="flex justify-between m-4">
-          <div class="flex">
-            <h3 class="mr-4 text-white">Process name</h3>
+          <div class="flex items-center">
+            <h3 class="mr-4 font-medium text-gray-100">Process name</h3>
+            <div class="flex items-center bg-gray-700 rounded-sm w-7 h-7 place-content-center">
+              <Outline.StarIcon class="w-4 h-4 text-gray-400" />
+            </div>
           </div>
           <div @click="open_panel = true" class="items-center hover:bg-gray-600 hidden text-gray-100 text-sm p-3 py-1.5 cursor-pointer rounded bg-gray-700 md:flex">
               <svg class="h-4 mr-2 text-white cursor-pointer fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"/></svg>
