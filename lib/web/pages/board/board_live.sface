@@ -22,8 +22,8 @@
 
         <div class="relative flex-grow mx-2">
           <div class="absolute top-0 bottom-0 left-0 right-0 pb-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex-colums">
-            <Bonfire.Kanban.BinLive />
-            <Bonfire.Kanban.BinLive />
+            <Bonfire.Kanban.BinLive cards={@drop_zone_a} drop_zone_id={"drop_zone_a"} />
+            <Bonfire.Kanban.BinLive cards={@drop_zone_b} drop_zone_id={"drop_zone_b"}/>
             <Bonfire.Kanban.CreateBinLive />
           </div>
         </div>

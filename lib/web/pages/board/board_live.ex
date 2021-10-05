@@ -20,17 +20,24 @@ defmodule Bonfire.Kanban.Web.BoardLive do
   end
 
   defp mounted(params, session, socket) do
-    IO.inspect(params)
     {:ok, socket
     |> assign(
       page_title: "Board",
+      drop_zone_a: [%{id: "drag-me-0", title: "Drag Me 0"}, %{id: "drag-me-1", title: "Drag Me 1"},],
+      drop_zone_b: [%{id: "drag-me-2", title: "Drag Me 2"}, %{id: "drag-me-3", title: "Drag Me 3"}],
       board_id: params[:id],
       card_id: params[:card_id],
     )}
   end
 
 
+  def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index}, socket) do
 
+    # implementation will go here
+    IO.inspect(dragged_id)
+    {:noreply, socket}
+  
+  end
 
   def handle_params(%{"card_id" => id}=_params, _uri, socket) do
     IO.inspect(id)
@@ -46,7 +53,7 @@ defmodule Bonfire.Kanban.Web.BoardLive do
     {:noreply, 
       push_redirect(
         socket, 
-        to: "/kanban/test/c/123" 
+        to: "/kanban/b/test/c/123" 
       )
     }
     end

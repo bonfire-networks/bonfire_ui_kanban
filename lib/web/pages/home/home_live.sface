@@ -1,1 +1,17 @@
-<div>all boards</div>
+<main class="flex flex-col items-center mx-auto mt-8">
+  <Bonfire.Kanban.Web.NavigationLive page={@selected_tab} />
+  {#case @selected_tab}
+    {#match "publish"}
+    <div>test</div>
+    {#match "discover"}
+    <div>test</div>
+    {#match "my-workspaces"}
+    <div>test</div>
+    {#match "private"}
+    <div>test</div>
+    {#match "bookmarked"}
+    <div>test</div>
+    {#match _}
+    <div>test</div>
+    {/case}
+</main>
