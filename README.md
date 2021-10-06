@@ -2,7 +2,7 @@
 
 An extension for [Bonfire](https://bonfire.cafe/) that handles:
 
-- UI components and views for [ValueFlows](https://github.com/bonfire-networks/bonfire_valueflows)
+- UI components and views for a kanban app
 
 ## Handy commands
 
