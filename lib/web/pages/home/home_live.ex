@@ -20,6 +20,7 @@ defmodule Bonfire.Kanban.Web.HomeLive do
     {:ok, socket
     |> assign(
       page_title: "All boards",
+      selected_tab: "discover"
     )}
   end
 
@@ -51,26 +52,6 @@ defmodule Bonfire.Kanban.Web.HomeLive do
      )}
   end
 
-  def do_handle_params(%{"tab" => "private" = tab} = _params, _url, socket) do
-    current_user = current_user(socket)
-   {:noreply,
-     assign(socket,
-       selected_tab: tab,
-     )}
-  end
-
-
-  def do_handle_params(%{"tab" => "bookmarked" = tab} = _params, _url, socket) do
-    current_user = current_user(socket)
-
-    # TODO
-
-    {:noreply,
-     assign(socket,
-       selected_tab: tab,
-     )}
-  end
-
 
   def do_handle_params(%{"tab" => tab} = _params, _url, socket) do
 
@@ -86,7 +67,7 @@ defmodule Bonfire.Kanban.Web.HomeLive do
 
     {:noreply,
      assign(socket,
-     selected_tab: "publish",
+     selected_tab: "discover",
      )}
   end
 
@@ -95,5 +76,7 @@ defmodule Bonfire.Kanban.Web.HomeLive do
       do_handle_params(params, uri, socket)
     end)
   end
+
+  def handle_event(action, attrs, socket), do: Bonfire.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
 
 end

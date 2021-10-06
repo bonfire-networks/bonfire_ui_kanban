@@ -2,74 +2,61 @@
   <Bonfire.Kanban.Web.NavigationLive page={@selected_tab} />
   {#case @selected_tab}
     {#match "discover"}
-    <div class="w-full mt-4">
-    <div class="flex items-center mb-3 space-x-2">
-      <Outline.StarIcon class="w-6 h-6 text-gray-300" />
-      <span class="block text-lg font-medium text-gray-300">Bookmarked boards</span>
-    </div>
-    <div class="grid w-full grid-cols-3 gap-4">
-      <div class="h-24 p-2 bg-green-500 rounded">
-        <div class="text-base font-bold text-gray-100">protocolli</div>
+      <div class="w-full mt-4">
+        <div class="flex items-center mb-3 space-x-2">
+          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
+          <span class="block text-base font-medium text-gray-300">All boards</span>
+        </div>
+        <div class="grid w-full grid-cols-3 gap-4">
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+        </div>
       </div>
-      <div class="h-24 p-2 bg-green-500 rounded">
-        <div class="text-base font-bold text-gray-100">protocolli</div>
-      </div>
-      <div class="h-24 p-2 bg-green-500 rounded">
-        <div class="text-base font-bold text-gray-100">protocolli</div>
-      </div>
-      <div class="h-24 p-2 bg-green-500 rounded">
-        <div class="text-base font-bold text-gray-100">protocolli</div>
-      </div>
-    </div>
-    </div>
     {#match "my-workspaces"}
-    <div class="w-full">
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Outline.StarIcon class="w-6 h-6 text-gray-300" />
-          <span class="block text-lg font-medium text-gray-300">Bookmarked boards</span>
+          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
+          <span class="block text-base font-medium text-gray-300">Bookmarked boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <div class="relative h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
         </div>
-      </div>
-      <div class="w-full mt-4">
-        <div class="flex items-center mb-3 space-x-2">
-          <Outline.ViewBoardsIcon class="w-6 h-6 text-gray-300" />
-          <span class="block text-lg font-medium text-gray-300">Active boards</span>
+
+        <div class="flex items-center mt-4 mb-3 space-x-2">
+          <Outline.ViewBoardsIcon class="w-5 h-5 text-gray-300" />
+          <span class="block text-base font-medium text-gray-300">Active boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
-          <div class="h-24 p-2 bg-green-500 rounded">
-            <div class="text-base font-bold text-gray-100">protocolli</div>
-          </div>
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
         </div>
       </div>
-    </div>
-    {#match "private"}
-    <div>test</div>
-    {#match "bookmarked"}
-    <div>test</div>
+      
     {#match _}
-    <div>test</div>
+    <div class="w-full mt-4">
+        <div class="flex items-center mb-3 space-x-2">
+          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
+          <span class="block text-base font-medium text-gray-300">All boards</span>
+        </div>
+        <div class="grid w-full grid-cols-3 gap-4">
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.Kanban.Web.BinPreviewLive />
+        </div>
+      </div>
     {/case}
 </main>

@@ -29,23 +29,26 @@
       
         <section class="bg-white rounded-lg shadow dark:bg-gray-700 w-center">
           <div class="mx-4 bg-white border-gray-100 rounded-lg dark:bg-gray-700 dark:border-gray-600 lg:mx-0">
-            <div class="px-2 pt-3 text-base font-semibold text-gray-300">{l "Create a new board"}</div>
+            <div class="flex items-center px-2 pt-3">
+              <div class="flex-1 text-base font-semibold text-gray-300">{l "Create a new board"}</div>
+              <div @click="open_create_board = false" ><Outline.XIcon class="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-200" /></div>
+            </div>
             <Form
-              class="flex flex-col w-full p-2 space-y-4"
+              class="flex flex-col w-full p-2"
               for={e(assigns, :globals, ValueFlows.Planning.Intent, :changeset, ValueFlows.Planning.Intent.validate_changeset())}
               opts={autocomplete: "off"}
               submit="ValueFlows.Planning.Intent:create">
               
               <!-- Create a title input form field -->
               <Field 
-                class="w-full p-2 m-0 rounded-lg shadow-inner bg-blueGray-600"
+                class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600"
                 name={:name}>
                 <Label class="block text-sm text-gray-300 font-regular">{l "Add a title"}</Label>
                 <TextInput class="block w-full text-gray-100 border-gray-600 rounded-md bg-blueGray-600 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
               </Field>
               <Field 
                 name={:note}
-                class="w-full p-2 rounded-lg shadow-inner bg-blueGray-600">
+                class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600">
                 <Label class="block text-sm text-gray-300 font-regular">{l "Write an optional description"}</Label>
                 <TextArea class="block w-full text-gray-100 border border-gray-600 rounded-md bg-blueGray-600 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></TextArea>
               </Field>
