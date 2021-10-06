@@ -1,5 +1,6 @@
 <main class="flex flex-col items-center mx-auto mt-8">
-  <Bonfire.Kanban.Web.NavigationLive page={@selected_tab} />
+  <div class="w-32 h-32 mb-8 rounded-full bg-blueGray-700"></div>
+  <Bonfire.UI.Kanban.NavigationLive page={@selected_tab} />
   {#case @selected_tab}
     {#match "discover"}
       <div class="w-full mt-4">
@@ -8,12 +9,12 @@
           <span class="block text-base font-medium text-gray-300">All boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
         </div>
       </div>
     {#match "my-workspaces"}
@@ -23,10 +24,10 @@
           <span class="block text-base font-medium text-gray-300">Bookmarked boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
         </div>
 
         <div class="flex items-center mt-4 mb-3 space-x-2">
@@ -34,12 +35,12 @@
           <span class="block text-base font-medium text-gray-300">Active boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
         </div>
       </div>
       
@@ -50,12 +51,12 @@
           <span class="block text-base font-medium text-gray-300">All boards</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
-          <Bonfire.Kanban.Web.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
+          <Bonfire.UI.Kanban.BinPreviewLive />
         </div>
       </div>
     {/case}

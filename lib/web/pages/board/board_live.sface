@@ -9,14 +9,13 @@
       <div class="relative flex flex-col h-full">
         <div class="flex justify-between m-4">
           <div class="flex items-center">
-            <a
+            <LiveRedirect to="/kanban"
               class="flex items-center mr-2 space-x-2"
-              aria-label="Navigate to the previous page"
-              href="javascript:window.history.back()">
+              aria-label="Navigate to the previous page">
               <span class="flex items-center w-6 h-6 rounded-full place-content-center bg-blueGray-200 dark:bg-gray-600 hover:bg-blueGray-300">
                 <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </span>
-            </a>
+            </LiveRedirect>
             <h3 class="mr-4 font-medium text-gray-100">Process name</h3>
             <div class="flex items-center bg-gray-700 rounded-sm w-7 h-7 place-content-center">
               <Outline.StarIcon class="w-4 h-4 text-gray-400" />
@@ -30,17 +29,17 @@
 
         <div class="relative flex-grow mx-2">
           <div class="absolute top-0 bottom-0 left-0 right-0 pb-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex-colums">
-            <Bonfire.Kanban.BinLive cards={@drop_zone_a} drop_zone_id={"drop_zone_a"} />
-            <Bonfire.Kanban.BinLive cards={@drop_zone_b} drop_zone_id={"drop_zone_b"}/>
-            <Bonfire.Kanban.CreateBinLive />
+            <Bonfire.UI.Kanban.BinLive cards={@drop_zone_a} drop_zone_id={"drop_zone_a"} />
+            <Bonfire.UI.Kanban.BinLive cards={@drop_zone_b} drop_zone_id={"drop_zone_b"}/>
+            <Bonfire.UI.Kanban.CreateBinLive />
           </div>
         </div>
       </div>
     </div>
   </div>
   {#if @card_id != nil}
-    <Bonfire.Kanban.Web.CardModalLive />
+    <Bonfire.UI.Kanban.CardModalLive />
   {/if}
-  <Bonfire.Kanban.Web.PanelLive />
+  <Bonfire.UI.Kanban.PanelLive />
   
 </div>

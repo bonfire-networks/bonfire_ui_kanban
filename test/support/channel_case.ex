@@ -1,4 +1,4 @@
-defmodule Bonfire.Kanban.ChannelCase do
+defmodule Bonfire.UI.Kanban.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -17,13 +17,13 @@ defmodule Bonfire.Kanban.ChannelCase do
 
   use ExUnit.CaseTemplate
 
-  import Bonfire.Kanban.Integration
+  import Bonfire.UI.Kanban.Integration
 
   using do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import Bonfire.Kanban.ChannelCase
+      import Bonfire.UI.Kanban.ChannelCase
 
       # The default endpoint for testing
       @endpoint Bonfire.Common.Config.get!(:endpoint_module)

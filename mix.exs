@@ -1,11 +1,11 @@
 Code.eval_file("mess.exs")
-defmodule Bonfire.Kanban.MixProject do
+defmodule Bonfire.UI.Kanban.MixProject do
 
   use Mix.Project
 
   def project do
     [
-      app: :bonfire_kanban,
+      app: :Bonfire.UI.Kanban,
       version: "0.1.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -24,7 +24,7 @@ defmodule Bonfire.Kanban.MixProject do
 
   def application do
     [
-      # mod: {Bonfire.KanbanFallbackApplication, []},
+      # mod: {Bonfire.UI.KanbanFallbackApplication, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

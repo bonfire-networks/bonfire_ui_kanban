@@ -1,3 +1,3 @@
-defmodule Bonfire.Kanban.LayoutView do
+defmodule Bonfire.UI.Kanban.LayoutView do
   use Bonfire.Web, :view
 end

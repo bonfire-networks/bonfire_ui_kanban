@@ -13,9 +13,9 @@
   <div class="">
     <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "Add to card"}</div>
     <div class="flex flex-col space-y-2">
-      <Bonfire.Kanban.Web.CardMembersLive />
-      <Bonfire.Kanban.Web.CardLabelsLive  />
-      <Bonfire.Kanban.Web.CardDatesLive  />
+      <Bonfire.UI.Kanban.CardMembersLive />
+      <Bonfire.UI.Kanban.CardLabelsLive  />
+      <Bonfire.UI.Kanban.CardDatesLive  />
       <!-- <div class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
         <Outline.CheckCircleIcon class="w-4 h-4 text-gray-600" />
         <span class="text-gray-700 capitalize">

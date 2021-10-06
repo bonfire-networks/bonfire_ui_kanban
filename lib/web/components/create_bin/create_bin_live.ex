@@ -1,4 +1,4 @@
-defmodule Bonfire.Kanban.CreateBinLive do
+defmodule Bonfire.UI.Kanban.CreateBinLive do
   use Bonfire.Web, :stateless_component
 
 end

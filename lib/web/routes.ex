@@ -1,23 +1,23 @@
-defmodule Bonfire.Kanban.Web.Routes do
+defmodule Bonfire.UI.Kanban.Routes do
   defmacro __using__(_) do
 
     quote do
 
        # pages anyone can view
-       scope "/kanban", Bonfire.Kanban do
+       scope "/kanban", Bonfire.UI.Kanban do
         pipe_through :browser
 
       end
 
       # pages you need an account to view
-      scope "/kanban", Bonfire.Kanban do
+      scope "/kanban", Bonfire.UI.Kanban do
         pipe_through :browser
         pipe_through :account_required
 
       end
 
       # pages anyone can view
-      scope "/kanban", Bonfire.Kanban do
+      scope "/kanban", Bonfire.UI.Kanban do
         pipe_through :browser
         pipe_through :user_required
         live "/", Web.HomeLive

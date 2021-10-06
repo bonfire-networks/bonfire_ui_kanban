@@ -32,11 +32,11 @@
       
         <section class="p-4" >
         <!-- Card Title and escape -->
-          <Bonfire.Kanban.Web.CardHeroLive />
+          <Bonfire.UI.Kanban.CardHeroLive />
           <!-- Card layout -->
           <div class="flex mt-4">
-            <Bonfire.Kanban.Web.CardMainLive />
-            <Bonfire.Kanban.Web.CardSidebarLive />
+            <Bonfire.UI.Kanban.CardMainLive />
+            <Bonfire.UI.Kanban.CardSidebarLive />
           </div>
         </section>
       

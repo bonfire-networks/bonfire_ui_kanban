@@ -1,4 +1,4 @@
-defmodule Bonfire.Kanban.Web.CardHeroLive do
+defmodule Bonfire.UI.Kanban.CardHeroLive do
   use Bonfire.Web, :stateless_component
 
 

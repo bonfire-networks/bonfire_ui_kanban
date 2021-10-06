@@ -1,4 +1,4 @@
-# Bonfire:Kanban
+# Bonfire.UI.Kanban
 
 An extension for [Bonfire](https://bonfire.cafe/) that handles:
 

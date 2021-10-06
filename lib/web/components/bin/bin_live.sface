@@ -9,10 +9,10 @@
     <div class="flex-1 min-h-0 mx-1 overflow-x-hidden overflow-y-auto text-sm z-1">
       <div class="dropzone kanban-scrollbar min-h-8">
           {#for card <- @cards}
-            <Bonfire.Kanban.CardLive card={card} />
+            <Bonfire.UI.Kanban.CardLive card={card} />
           {/for}
       </div>
-      <Bonfire.Kanban.CreateCardLive />
+      <Bonfire.UI.Kanban.CreateCardLive />
     </div>
   </div>
 </div>

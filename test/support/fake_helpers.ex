@@ -1,11 +1,11 @@
-defmodule Bonfire.Kanban.Test.FakeHelpers do
+defmodule Bonfire.UI.Kanban.Test.FakeHelpers do
 
   alias Bonfire.Data.Identity.Account
-  # alias Bonfire.Kanban.Fake
+  # alias Bonfire.UI.Kanban.Fake
   alias Bonfire.Me.{Accounts, Users}
   import ExUnit.Assertions
 
-  import Bonfire.Kanban.Integration
+  import Bonfire.UI.Kanban.Integration
 
   def fake_account!(attrs \\ %{}) do
     cs = Accounts.signup_changeset(Fake.account(attrs))

@@ -1,4 +1,4 @@
-defmodule Bonfire.Kanban.Web.HomeLive do
+defmodule Bonfire.UI.Kanban.HomeLive do
   use Bonfire.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "full_template.html"}]}
 
   alias Bonfire.Web.LivePlugs

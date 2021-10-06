@@ -1,4 +1,4 @@
-defmodule Bonfire.Kanban.ConnCase do
+defmodule Bonfire.UI.Kanban.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -23,11 +23,11 @@ defmodule Bonfire.Kanban.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import Phoenix.LiveViewTest
-      import Bonfire.Kanban.ConnCase
-      import Bonfire.Kanban.Test.ConnHelpers
-      import Bonfire.Kanban.Test.FakeHelpers
-      # alias Bonfire.Kanban.Fake
-      # alias Bonfire.Kanban.Web.Router.Helpers, as: Routes
+      import Bonfire.UI.Kanban.ConnCase
+      import Bonfire.UI.Kanban.Test.ConnHelpers
+      import Bonfire.UI.Kanban.Test.FakeHelpers
+      # alias Bonfire.UI.Kanban.Fake
+      # alias Bonfire.UI.Kanban.Router.Helpers, as: Routes
 
       # The default endpoint for testing
       @endpoint Bonfire.Common.Config.get!(:endpoint_module)
@@ -36,7 +36,7 @@ defmodule Bonfire.Kanban.ConnCase do
 
   setup tags do
 
-    import Bonfire.Kanban.Integration
+    import Bonfire.UI.Kanban.Integration
 
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(repo())
 
