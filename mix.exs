@@ -5,7 +5,7 @@ defmodule Bonfire.UI.Kanban.MixProject do
 
   def project do
     [
-      app: :Bonfire_ui_kanban,
+      app: :bonfire_ui_kanban,
       version: "0.1.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
