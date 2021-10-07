@@ -34,13 +34,14 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index}, socket) do
 
     # implementation will go here
-    IO.inspect(dragged_id)
+    IO.inspect(dragged_id: dragged_id)
+    IO.inspect(draggable_index: draggable_index)
     {:noreply, socket}
-  
+
   end
 
   def handle_params(%{"card_id" => id}=_params, _uri, socket) do
-    IO.inspect(id)
+    IO.inspect(card_id: id)
     {:noreply, assign(socket, :card_id, id)}
   end
 
@@ -50,15 +51,15 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
 
   def handle_event("show", id, socket) do
-    {:noreply, 
+    {:noreply,
       push_redirect(
-        socket, 
-        to: "/kanban/b/test/c/123" 
+        socket,
+        to: "/kanban/b/test/c/123"
       )
     }
     end
 
- 
+
     # defdelegate handle_params(params, attrs, socket), to: Bonfire.Common.LiveHandlers
 
     def handle_event(action, attrs, socket), do: Bonfire.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
