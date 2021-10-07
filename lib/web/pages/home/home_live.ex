@@ -1,5 +1,6 @@
 defmodule Bonfire.UI.Kanban.HomeLive do
   use Bonfire.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "full_template.html"}]}
+  use AbsintheClient, schema: Bonfire.GraphQL.Schema, action: [mode: :internal]
 
   alias Bonfire.Web.LivePlugs
   alias Bonfire.Me.Users
@@ -20,9 +21,26 @@ defmodule Bonfire.UI.Kanban.HomeLive do
     {:ok, socket
     |> assign(
       page_title: "All boards",
-      selected_tab: "discover"
+      selected_tab: "discover",
+      boards: processes(socket) |> IO.inspect
     )}
   end
+
+  @graphql """
+  {
+    processes {
+      id
+      name
+      note
+      has_end
+      intended_outputs {
+        finished
+      }
+    }
+  }
+  """
+  def processes(params \\ %{}, socket), do: liveql(socket, :processes, params)
+
 
   def do_handle_params(%{"tab" => "publish" = tab} = _params, _url, socket) do
     current_user = current_user(socket)
@@ -35,7 +53,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   def do_handle_params(%{"tab" => "discover" = tab} = _params, _url, socket) do
     current_user = current_user(socket)
-    
+
     {:noreply,
      assign(socket,
         selected_tab: tab,
@@ -44,7 +62,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   def do_handle_params(%{"tab" => "my-workspaces" = tab} = _params, _url, socket) do
     current_user = current_user(socket)
-    
+
 
     {:noreply,
      assign(socket,
