@@ -6,7 +6,7 @@
   <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
     <LivePatch
       class="cursor-default"
-      to={"/kanban/b/test"}>
+      to={"/kanban/b/"<>@board_id}>
       <div 
         x-transition:enter="ease-out duration-300" 
         x-transition:enter-start="opacity-0" 
@@ -32,11 +32,11 @@
       
         <section class="p-4" >
         <!-- Card Title and escape -->
-          <Bonfire.UI.Kanban.CardHeroLive />
+          <Bonfire.UI.Kanban.CardHeroLive card={@card} board_id={@board_id} />
           <!-- Card layout -->
           <div class="flex mt-4">
-            <Bonfire.UI.Kanban.CardMainLive />
-            <Bonfire.UI.Kanban.CardSidebarLive />
+            <Bonfire.UI.Kanban.CardMainLive card={@card} board_id={@board_id} />
+            <Bonfire.UI.Kanban.CardSidebarLive card={@card} board_id={@board_id} />
           </div>
         </section>
       

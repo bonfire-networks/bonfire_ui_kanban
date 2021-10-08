@@ -22,9 +22,12 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   defp mounted(%{"id"=> id} = params, _session, socket) do
     process = process(%{id: id}, socket) |> IO.inspect
 
+    all_cards = Map.new(process.intended_inputs ++ process.intended_outputs, fn x -> {x.id, x} end) #|> IO.inspect
+
     {:ok, socket
     |> assign(
       page_title: "Board",
+      all_cards: all_cards,
       bins: [%{name: "Dependencies", cards: process.intended_inputs}, %{name: "To do", cards: process.intended_outputs}],
       board_id: id,
       card_id: params[:card_id],
@@ -123,24 +126,27 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   end
 
-  def handle_event("show", id, socket) do
-  {:noreply,
-    push_redirect(
-      socket,
-      to: "/kanban/b/test/c/123"
-    )
-  }
-  end
+  # def handle_event("show", id, socket) do
+  # {:noreply,
+  #   push_redirect(
+  #     socket,
+  #     to: "/kanban/b/test/c/123"
+  #   )
+  # }
+  # end
 
   def handle_event(action, attrs, socket), do: Bonfire.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
 
   def handle_params(%{"card_id" => id}=_params, _uri, socket) do
     IO.inspect(card_id: id)
-    {:noreply, assign(socket, :card_id, id)}
+    {:noreply, assign(socket,
+      card_id: id,
+      selected_card: e(socket.assigns, :all_cards, id, nil)
+    )}
   end
 
   def handle_params(_, _uri, socket) do
-    {:noreply, assign(socket, :card_id, nil)}
+    {:noreply, assign(socket, card_id: nil, selected_card: nil)}
   end
 
   def handle_params(%{"filter" => status}, _, %{assigns: %{process: process}} = socket) do
