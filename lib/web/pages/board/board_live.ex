@@ -8,6 +8,9 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   alias Bonfire.Me.Users
   alias Bonfire.Me.Web.{CreateUserLive, LoggedDashboardLive}
 
+  # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.Integration.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
+  @default_filters %{}
+
 
   def mount(params, session, socket) do
     LivePlugs.live_plug params, session, socket, [
@@ -103,12 +106,11 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   }
   """
 
-  def process(params \\ %{}, socket), do: liveql(socket, :process, params)
-  def process_filtered(params \\ %{}, socket), do: liveql(socket, :process, params)
+  def process(params \\ @default_filters, socket), do: liveql(socket, :process, Map.merge(@default_filters, params))
 
 
   def handle_event("search", %{"key" => "Enter", "value" => search_term} = attrs, %{assigns: %{process: process}} = socket) do
-    process = process_filtered(%{id: process.id, intent_filter: %{"searchString" => search_term}}, socket)
+    process = process(%{id: process.id, intent_filter: %{"searchString" => search_term}}, socket)
     {:noreply, socket |> assign(process: process)}
   end
 
@@ -116,13 +118,24 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply, socket}
   end
 
+  def handle_event("dropped", %{"draggedId" => "bin:"<>dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index} = params, socket) do
+
+    # implementation for bin ordering will go here
+    IO.inspect(dragged_id: dragged_id)
+    IO.inspect(draggable_index: draggable_index)
+
+    {:noreply, socket}
+
+  end
 
   def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index} = params, socket) do
 
-    # implementation will go here
+    # implementation for card ordering will go here
     IO.inspect(dragged_id: dragged_id)
     IO.inspect(drop_zone_id: drop_zone_id)
     IO.inspect(draggable_index: draggable_index)
+
+    # Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: drop_zone_id, rank_set: draggable_index}) |> Bonfire.Repo.upsert
 
     {:noreply, socket}
 
@@ -152,7 +165,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   end
 
   def handle_params(%{"filter" => status}, _, %{assigns: %{process: process}} = socket) do
-    process = process_filtered(%{id: process.id, intent_filter: %{"status" => status}}, socket)
+    process = process(%{id: process.id, intent_filter: %{"status" => status}}, socket)
     {:noreply, socket |> assign(process: process)}
   end
   def handle_params(params, attrs, socket), do: Bonfire.Common.LiveHandlers.handle_params(params, attrs, socket, __MODULE__)

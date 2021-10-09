@@ -1,4 +1,4 @@
-<div class="inline-block h-full mx-1 align-top rounded w-72 whitespace-nowrap flex-no-shrink">
+<div id={"bin:#{@bin.id}"} class="draggable inline-block h-full mx-1 align-top rounded w-72 whitespace-nowrap flex-no-shrink">
   <div class="relative flex flex-col max-h-full whitespace-normal bg-gray-200 rounded ">
     <div class="flex items-center justify-between p-2">
         <h3 class="text-sm font-bold text-gray-800">{e(@bin, :name, "Untitled bin")}</h3>
