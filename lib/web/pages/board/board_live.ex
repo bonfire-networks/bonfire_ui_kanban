@@ -23,19 +23,40 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   end
 
   defp mounted(%{"id"=> id} = params, _session, socket) do
+
+    current_user = current_user(socket)
+
     process = process(%{id: id}, socket) |> IO.inspect
 
     all_cards = Map.new(process.intended_inputs ++ process.intended_outputs, fn x -> {x.id, x} end) #|> IO.inspect
+
+    # TODO: generate bins from taxonomy
+
+    todo = process.intended_outputs |> Enum.reject(&(&1.finished))
+
+    unassigned = todo |> Enum.reject(&(!&1.provider))
+    todo = todo |> Enum.reject(&(&1.provider))
+
+    someday = todo |> Enum.reject(&(!&1.due))
+    todo = todo |> Enum.reject(&(&1.due))
+
+    finished = process.intended_outputs |> Enum.reject(&(!&1.finished))
+
+    bins = [%{id: upstream_tag_id(current_user, "Dependencies"), name: "Dependencies", cards: process.intended_inputs}, %{id: upstream_tag_id(current_user, "Up_for_grabs"), name: "Up for grabs", cards: unassigned}, %{id: upstream_tag_id(current_user, "Someday"), name: "Someday", cards: someday}, %{id: upstream_tag_id(current_user, "To_do"), name: "To do", cards: todo}, %{id: upstream_tag_id(current_user, "Done"), name: "Done", cards: finished}]
 
     {:ok, socket
     |> assign(
       page_title: "Board",
       all_cards: all_cards,
-      bins: [%{id: 1, name: "Dependencies", cards: process.intended_inputs}, %{id: 2, name: "To do", cards: process.intended_outputs}], # TODO: generate bins from taxonomy
+      bins: bins,
       board_id: id,
       card_id: params[:card_id],
-      board: process
+      board: process |> Map.drop([:intended_inputs, :intended_outputs])
     )}
+  end
+
+  def upstream_tag_id(current_user, tag_slug) do
+    ValueFlows.Util.maybe_classification_id(current_user, Bonfire.UI.Kanban.Integration.remote_tag_prefix<>tag_slug)
   end
 
   @quantity_fields """
