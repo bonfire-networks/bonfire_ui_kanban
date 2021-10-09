@@ -9,7 +9,7 @@
       <LivePatch  to={"/kanban/discover"} class={"px-3 py-2 text-sm text-gray-400 rounded-md font-regular hover:text-gray-200", "text-gray-100 rounded-md bg-gray-800 hover:bg-gray-800": @page == "discover"}><span>{l "Discover"}</span></LivePatch>
       <LivePatch  to={"/kanban/my-workspaces"} class={"px-3 py-2 text-sm text-gray-400 rounded-md font-regular hover:text-gray-200", "text-gray-100 rounded-md bg-gray-800 hover:bg-gray-800": @page == "my-workspaces"}><span>{l "My workspaces"}</span></LivePatch>
       </div>
-      <button @click="open_create_board = true" class="flex items-center justify-center px-4 text-sm font-medium text-center text-gray-100 text-gray-400 rounded-md cursor-pointer hover:bg-blueGray-700 hover:text-gray-200 border-blueGray-800 bg-gradient-to-r from-purple-600 to-pink-400 hover:from-blue hover:to-pink">Create a board</button>
+      <button @click="open_create_board = true" class="flex items-center justify-center px-4 text-sm font-medium text-center text-gray-100 text-gray-400 rounded-md cursor-pointer hover:bg-blueGray-700 hover:text-gray-200 border-blueGray-800 bg-gradient-to-r from-purple-600 to-pink-400 hover:from-blue hover:to-pink">{l "Create a board"}</button>
     </nav>
   </div>
   <Bonfire.UI.Kanban.CreateBoardLive />

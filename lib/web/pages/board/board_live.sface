@@ -23,7 +23,7 @@
           </div>
           <div @click="open_panel = true" class="items-center hover:bg-gray-600 hidden text-gray-100 text-sm p-3 py-1.5 cursor-pointer rounded bg-gray-700 md:flex">
               <svg class="h-4 mr-2 text-white cursor-pointer fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"/></svg>
-              Show menu
+              {l "Show menu"}
           </div>
         </div>
 
@@ -40,9 +40,11 @@
       </div>
     </div>
   </div>
+  
   {#if @card_id && @selected_card}
     <Bonfire.UI.Kanban.CardModalLive card={@selected_card} board_id={@board.id} />
   {/if}
-  <Bonfire.UI.Kanban.PanelLive />
+
+  <Bonfire.UI.Kanban.PanelLive board={@board} />
   
 </div>

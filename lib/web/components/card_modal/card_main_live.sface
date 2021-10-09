@@ -1,7 +1,7 @@
 <div class="flex-1 mr-4">
   <div class="flex space-x-2 items-top">
     <div class="flex-1">
-      <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">Assigned to</div>
+      <div class="mb-1 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "Assigned to"}</div>
       <div class="flex items-center space-x-1">
         <div class="bg-gray-200 rounded-full w-7 h-7"></div>
         <div class="flex items-center bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 w-7 h-7 place-content-center">

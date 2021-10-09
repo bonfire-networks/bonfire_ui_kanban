@@ -6,7 +6,7 @@
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">All boards</span>
+          <span class="block text-base font-medium text-gray-300">{l "All boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           {#for board <- @boards}
@@ -18,7 +18,7 @@
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">Bookmarked boards</span>
+          <span class="block text-base font-medium text-gray-300">{l "Bookmarked boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -29,7 +29,7 @@
 
         <div class="flex items-center mt-4 mb-3 space-x-2">
           <Outline.ViewBoardsIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">Active boards</span>
+          <span class="block text-base font-medium text-gray-300">{l "Active boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -45,7 +45,7 @@
     <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">All boards</span>
+          <span class="block text-base font-medium text-gray-300">{l "All boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />

@@ -28,7 +28,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     |> assign(
       page_title: "Board",
       all_cards: all_cards,
-      bins: [%{name: "Dependencies", cards: process.intended_inputs}, %{name: "To do", cards: process.intended_outputs}],
+      bins: [%{id: 1, name: "Dependencies", cards: process.intended_inputs}, %{id: 2, name: "To do", cards: process.intended_outputs}], # TODO: generate bins from taxonomy
       board_id: id,
       card_id: params[:card_id],
       board: process
@@ -117,11 +117,13 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   end
 
 
-  def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index}, socket) do
+  def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index} = params, socket) do
 
     # implementation will go here
     IO.inspect(dragged_id: dragged_id)
+    IO.inspect(drop_zone_id: drop_zone_id)
     IO.inspect(draggable_index: draggable_index)
+
     {:noreply, socket}
 
   end

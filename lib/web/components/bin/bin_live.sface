@@ -7,12 +7,12 @@
         </span>
     </div>
     <div class="flex-1 min-h-0 mx-1 overflow-x-hidden overflow-y-auto text-sm z-1">
-      <div class="dropzone kanban-scrollbar min-h-8">
+      <div id={@bin.id} class="dropzone kanban-scrollbar min-h-[1rem]">
           {#for card <- @bin.cards}
             <Bonfire.UI.Kanban.CardLive board_id={@board_id} card={card} />
           {/for}
       </div>
-      <Bonfire.UI.Kanban.CreateCardLive />
+      <Bonfire.UI.Kanban.CreateCardLive board_id={@board_id} bin_id={@bin.id} />
     </div>
   </div>
 </div>

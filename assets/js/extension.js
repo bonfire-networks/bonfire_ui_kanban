@@ -13,7 +13,7 @@ KanbanHooks.Drag = {
   // var sortable = Sortable.create(el);
   // return sortable
   document.querySelectorAll('.dropzone').forEach((dropzone) => {
-    console.log(dropzone)
+    // console.log(dropzone)
     var sortable = new Sortable(dropzone, {
       animation: 150,
       draggable: '.draggable',
@@ -30,7 +30,7 @@ KanbanHooks.Drag = {
       onEnd: function(evt) {
         hook.pushEventTo(selector, 'dropped', {
           draggedId: evt.item.id, // id of the dragged item
-          dropzoneId: evt.to.id, // id of the drop zone where the drop occured
+          dropzoneId: evt.to.id, // id of the drop zone where the drop occurred
           draggableIndex: evt.newDraggableIndex, // index where the item was dropped (relative to other items in the drop zone)
         });
       }
