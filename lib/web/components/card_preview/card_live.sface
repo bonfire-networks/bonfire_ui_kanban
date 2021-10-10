@@ -1,0 +1,32 @@
+<LivePatch   
+ opts={id: e(@card, :id, "")}
+ to={"/kanban/b/"<>@board_id<>"/c/"<>e(@card, :id, "")}
+ class="cursor-pointer draggable"
+  >
+<div 
+  class="p-2 m-1 my-2 bg-white border-b rounded shadow-sm border-grey hover:bg-gray-100"
+  >
+  <!-- LABEL -->
+  <div :if={!e(@card, :finished, nil) && !e(@card, :provider, nil)} class="w-6 h-2 p-1 mb-1 bg-blue-400 rounded-full"></div>
+  <div :if={e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-yellow-400 rounded-full"></div>
+  <div :if={e(@card, :finished, nil)} class="w-24 h-2 p-1 mb-1 bg-green-400 rounded-full"></div>
+  <p>{e(@card, :name, "")}</p>
+  <div class="flex items-center mt-2 space-x-3 text-gray-700">
+    <div class="flex items-center space-x-1 text-gray-700">
+      <Outline.ChatAlt2Icon class="w-4 h-4 text-gray-700" />
+      <span class="text-xs text-gray-700">2</span>
+    </div>
+    <div class="flex items-center space-x-1 text-xs"> 
+      <Outline.CheckCircleIcon class="w-4 h-4 text-gray-700" />
+      <span class="text-xs text-gray-700">3/5</span>
+    </div>
+    <span :if={@card.due} class="text-xs text-gray-700">
+      Due {e(@card, :due, "")}
+    </span>
+  </div>
+  <div class="grid mt-1 justify-items-end">
+    <img :if={@card.receiver} class="inline-block w-6 h-6 bg-gray-200 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt="">
+    <img :if={@card.provider} class="inline-block w-6 h-6 bg-gray-200 rounded-full" src={"#{avatar_url(@card.provider)}"} alt="">
+  </div>
+</div>
+</LivePatch>

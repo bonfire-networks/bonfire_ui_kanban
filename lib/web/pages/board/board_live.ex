@@ -34,11 +34,11 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
     todo = process.intended_outputs |> Enum.reject(&(&1.finished))
 
-    unassigned = todo |> Enum.reject(&(!&1.provider))
-    todo = todo |> Enum.reject(&(&1.provider))
+    unassigned = todo |> Enum.reject(&(&1.provider))
+    todo = todo |> Enum.reject(&(!&1.provider))
 
-    someday = todo |> Enum.reject(&(!&1.due))
-    todo = todo |> Enum.reject(&(&1.due))
+    someday = todo |> Enum.reject(&(&1.due))
+    todo = todo |> Enum.reject(&(!&1.due))
 
     finished = process.intended_outputs |> Enum.reject(&(!&1.finished))
 
