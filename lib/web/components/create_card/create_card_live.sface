@@ -13,8 +13,10 @@
   <form phx-submit="ValueFlows.Planning.Intent:create">
     <label class="sr-only">{l "Add a title"}</label>
     <input type="hidden" name="action" value="work" />
+    <input type="hidden" name="receiver" value={e(current_user(assigns), :id, "me")} />
     <HiddenInput :if={e(assigns, :board_id, nil)} name="output_of_id" value={e(assigns, :board_id, "")} />
     <HiddenInput name="classified_as[]" value={Bonfire.UI.Kanban.Integration.remote_tag_id} />
+    <HiddenInput name="classified_as[]" value={@bin_id} />
     <input name="name" placeholder="Enter a title" class="block w-full h-8 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     <textarea name="note" placeholder="Add more details" class="block w-full h-16 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" ></textarea>
     <div class="flex items-center mt-2 space-x-2">

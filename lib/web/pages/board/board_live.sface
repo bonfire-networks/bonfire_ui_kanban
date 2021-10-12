@@ -1,6 +1,6 @@
 <div  
-  phx-hook="Drag"
-  id="drag"
+  phx-hook="Sortable"
+  id="the_board"
   x-data="{ open_panel: false }" 
   @keydown.window.escape="open_panel = false"  
   class="relative flex flex-col flex-grow -mt-4 overflow-y-none">
@@ -28,13 +28,13 @@
         </div>
 
         <div class="relative flex-grow mx-2">
-          <div class="dropzone absolute top-0 bottom-0 left-0 right-0 pb-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex-colums">
+          <div data-group="bins" class="dropzone absolute top-0 bottom-0 left-0 right-0 pb-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex-colums">
 
             {#for bin <- @bins}
               <Bonfire.UI.Kanban.BinLive board_id={@board.id} bin={bin} drop_zone_id={e(bin, :id, nil)} />
             {/for}
 
-            <Bonfire.UI.Kanban.CreateBinLive />
+            <Bonfire.UI.Kanban.CreateBinLive suggested_bins={@suggested_bins} />
           </div>
         </div>
       </div>

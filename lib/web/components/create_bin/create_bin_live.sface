@@ -6,7 +6,7 @@
     class="">
     <div
       class="flex items-center h-10 p-2 space-x-2 bg-opacity-50 rounded cursor-pointer bg-blueGray-300 hover:bg-opacity-60"
-      x-show="open  == false" 
+      x-show="open == false" 
       @click="open = true"
     >
       <Solid.PlusIcon class="w-5 h-5 text-gray-200" />
@@ -17,11 +17,13 @@
       <label class="sr-only">{l "Add a title"}</label>
 
       <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
-        <input placeholder="Enter or select a list title..." class="block w-full align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        <input name="input_tag" placeholder="Enter or select a list title..." class="block w-full align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
         <select class="hidden">
-          <option value="1">In progress</option>
-          <option value="2">Someday</option>
+          {#for bin <- @suggested_bins}
+            <option value={bin.id}>{bin.name}</option>
+          {/for}
         </select>
+        
       </div>
 
       <div class="flex items-center mt-2 space-x-2">
