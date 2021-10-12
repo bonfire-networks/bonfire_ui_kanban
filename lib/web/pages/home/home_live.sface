@@ -1,4 +1,4 @@
-<main class="flex flex-col items-center mx-auto mt-8">
+<main class="flex flex-col items-center mx-auto mt-8 w-full max-w-screen-md">
   <div class="w-32 h-32 mb-8 rounded-full bg-blueGray-700"></div>
   <Bonfire.UI.Kanban.NavigationLive page={@selected_tab} />
   {#case @selected_tab}
