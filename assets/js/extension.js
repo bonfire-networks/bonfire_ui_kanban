@@ -13,7 +13,7 @@ KanbanHooks.Sortable = {
   // var sortable = Sortable.create(el);
   // return sortable
   document.querySelectorAll('.dropzone').forEach((dropzone) => {
-    // console.log(dropzone.dataset.group)
+   console.log(dropzone.dataset.group)
     var sortable = new Sortable(dropzone, {
       animation: 150,
       draggable: '.draggable',
