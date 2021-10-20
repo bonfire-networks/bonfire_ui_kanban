@@ -1,12 +1,12 @@
-<main class="flex flex-col items-center mx-auto mt-8 w-full max-w-screen-md">
+<main class="flex flex-col items-center w-full max-w-screen-md mx-auto mt-8">
   <div class="w-32 h-32 mb-8 rounded-full bg-blueGray-700"></div>
   <Bonfire.UI.Kanban.NavigationLive page={@selected_tab} />
   {#case @selected_tab}
     {#match "discover"}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">{l "All boards"}</span>
+          <Outline.StarIcon class="w-5 h-5 text-base-content" />
+          <span class="block text-base font-medium text-base-content">{l "All boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           {#for board <- @boards}
@@ -17,8 +17,8 @@
     {#match "my-workspaces"}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">{l "Bookmarked boards"}</span>
+          <Outline.StarIcon class="w-5 h-5 text-base-content" />
+          <span class="block text-base font-medium text-base-content">{l "Bookmarked boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -28,8 +28,8 @@
         </div>
 
         <div class="flex items-center mt-4 mb-3 space-x-2">
-          <Outline.ViewBoardsIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">{l "Active boards"}</span>
+          <Outline.ViewBoardsIcon class="w-5 h-5 text-base-content" />
+          <span class="block text-base font-medium text-base-content">{l "Active boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -44,8 +44,8 @@
     {#match _}
     <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Outline.StarIcon class="w-5 h-5 text-gray-300" />
-          <span class="block text-base font-medium text-gray-300">{l "All boards"}</span>
+          <Outline.StarIcon class="w-5 h-5 text-base-content" />
+          <span class="block text-base font-medium text-base-content">{l "All boards"}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />

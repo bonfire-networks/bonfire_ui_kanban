@@ -1,16 +1,17 @@
-<div
+<div 
   x-data="{
     open_create_board: false
   }"
-  class="mb-4 bg-white rounded-lg shadow dark:bg-blueGray-700 w-center">
-  <div class="hidden p-2 sm:block">
-    <nav class="flex" aria-label="Tabs">
-      <div class="flex flex-1 space-x-4">
-      <LivePatch  to={"/kanban/discover"} class={"px-3 py-2 text-sm text-gray-400 rounded-md font-regular hover:text-gray-200", "text-gray-100 rounded-md bg-gray-800 hover:bg-gray-800": @page == "discover"}><span>{l "Discover"}</span></LivePatch>
-      <LivePatch  to={"/kanban/my-workspaces"} class={"px-3 py-2 text-sm text-gray-400 rounded-md font-regular hover:text-gray-200", "text-gray-100 rounded-md bg-gray-800 hover:bg-gray-800": @page == "my-workspaces"}><span>{l "My workspaces"}</span></LivePatch>
-      </div>
-      <button @click="open_create_board = true" class="flex items-center justify-center px-4 text-sm font-medium text-center text-gray-100 text-gray-400 rounded-md cursor-pointer hover:bg-blueGray-700 hover:text-gray-200 border-blueGray-800 bg-gradient-to-r from-purple-600 to-pink-400 hover:from-blue hover:to-pink">{l "Create a board"}</button>
-    </nav>
-  </div>
-  <Bonfire.UI.Kanban.CreateBoardLive />
+  class="flex items-center w-full px-3 shadow-lg rounded-box menu bg-base-100 horizontal">
+  <ul class="flex items-stretch flex-1 w-full">
+    <li class={"bordered": @page == "discover"}>
+      <LivePatch  to={"/kanban/discover"}>{l "Discover"}</LivePatch>
+    </li> 
+
+    <li class={"bordered": @page == "my-workspaces"}>
+      <LivePatch  to={"/kanban/my-workspaces"}>{l "My workspaces"}</LivePatch>
+    </li> 
+  </ul>
+  <button @click="open_create_board = true" class="btn btn-secondary btn-sm">{l "Create a board"}</button>
+    <Bonfire.UI.Kanban.CreateBoardLive />
 </div>
