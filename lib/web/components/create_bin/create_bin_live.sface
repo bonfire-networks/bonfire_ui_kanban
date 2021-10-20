@@ -5,14 +5,14 @@
   <div
     class="">
     <div
-      class="flex items-center h-10 p-2 space-x-2 bg-opacity-50 rounded cursor-pointer bg-blueGray-300 hover:bg-opacity-60"
+      class="flex items-center h-10 p-2 space-x-2 rounded cursor-pointer bg-base-100 hover:bg-opacity-80"
       x-show="open == false" 
       @click="open = true"
     >
-      <Solid.PlusIcon class="w-5 h-5 text-gray-200" />
-      <span class="text-sm text-gray-100">{l "Add another list"}</span>
+      <Solid.PlusIcon class="w-5 h-5 text-base-content" />
+      <span class="text-sm text-base-content">{l "Add another list"}</span>
     </div>
-    <div x-show="open" class="p-2 bg-gray-200 rounded">
+    <div x-show="open" class="p-2 rounded bg-base-100">
       <form phx-submit="create_bin">
       <label class="sr-only">{l "Add a title"}</label>
 
@@ -27,9 +27,9 @@
       </div>
 
       <div class="flex items-center mt-2 space-x-2">
-        <button class="btn-primary">{l "Add list"}</button>
+        <button class="btn btn-primary">{l "Add list"}</button>
         <span @click="open = false">
-          <Solid.XIcon class="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-800" />
+          <Solid.XIcon class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-100" />
         </span>
       </div>
       </form>

@@ -4,23 +4,23 @@
  class="block cursor-pointer draggable"
   >
 <div 
-  class="p-2 m-1 my-2 bg-white border-b rounded shadow-sm border-grey hover:bg-gray-100"
+  class="p-2 m-1 my-2 border-b rounded shadow-sm bg-base-300 border-base-200 hover:bg-base-200"
   >
   <!-- LABEL -->
   <div :if={!e(@card, :finished, nil) && !e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-blue-400 rounded-full"></div>
   <div :if={e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-yellow-400 rounded-full"></div>
   <div :if={e(@card, :finished, nil)} class="w-12 h-2 p-1 mb-1 bg-green-400 rounded-full"></div>
   <p>{e(@card, :name, "")}</p>
-  <div class="flex items-center mt-2 space-x-3 text-gray-700">
-    <div class="flex items-center space-x-1 text-gray-700">
-      <Outline.ChatAlt2Icon class="w-4 h-4 text-gray-700" />
-      <span class="text-xs text-gray-700">2</span>
+  <div class="flex items-center mt-2 space-x-3">
+    <div class="flex items-center space-x-1">
+      <Outline.ChatAlt2Icon class="w-4 h-4 text-base-content text-opacity-70" />
+      <span class="text-xs text-base-content text-opacity-70">2</span>
     </div>
     <!-- <div class="flex items-center space-x-1 text-xs"> 
       <Outline.CheckCircleIcon class="w-4 h-4 text-gray-700" />
       <span class="text-xs text-gray-700">3/5</span>
     </div> -->
-    <span :if={@card.due} class="text-xs text-gray-700">
+    <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
       Due {e(@card, :due, "")}
     </span>
   </div>
