@@ -17,10 +17,10 @@
       <label class="sr-only">{l "Add a title"}</label>
 
       <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
-        <input name="input_tag" placeholder="Enter or select a list title..." class="block w-full align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        <input name="input_tag" placeholder="Enter or select a list title..." class="block w-full align-top resize-none border-base-200 bg-base-200 text-base-content" />
         <select class="hidden">
           {#for bin <- @suggested_bins}
-            <option value={bin.id}>{bin.name}</option>
+            <option class="text-base-content" value={bin.id}>{bin.name}</option>
           {/for}
         </select>
         
