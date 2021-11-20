@@ -35,10 +35,10 @@
             </div>
             <Form
               class="flex flex-col w-full p-2"
-              for={e(assigns, :globals, ValueFlows.Planning.Intent, :changeset, ValueFlows.Planning.Intent.validate_changeset())}
+              for={e(assigns, :globals, ValueFlows.Process, :changeset, ValueFlows.Process.LiveHandler.changeset())}
               opts={autocomplete: "off"}
-              submit="ValueFlows.Planning.Intent:create">
-              
+              submit="ValueFlows.Process:create">
+              <input type="hidden" name="redirect_after" value="/kanban/b/"/>
               <!-- Create a title input form field -->
               <Field 
                 class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600"

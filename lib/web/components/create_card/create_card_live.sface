@@ -12,6 +12,7 @@
   <div x-show="open" class="m-2 mx-1">
   <form phx-submit="ValueFlows.Planning.Intent:create">
     <label class="sr-only">{l "Add a title"}</label>
+    <input type="hidden" name="redirect_after" value={"/kanban/b/"<>e(assigns, :board_id, nil)<>"/c/"}/>
     <input type="hidden" name="action" value="work" />
     <input type="hidden" name="receiver" value={e(current_user(assigns), :id, "me")} />
     <HiddenInput :if={e(assigns, :board_id, nil)} name="output_of_id" value={e(assigns, :board_id, "")} />
