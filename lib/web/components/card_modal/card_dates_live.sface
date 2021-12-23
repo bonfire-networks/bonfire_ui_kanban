@@ -1,4 +1,4 @@
-<div @click.away="dates = false" class="relative">
+<div @click.outside="dates = false" class="relative">
   <div 
     @click="dates = true"  
     class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
