@@ -13,7 +13,7 @@
       x-transition:leave-start="opacity-100" 
       x-transition:leave-end="opacity-0" 
       x-description="Background overlay, show/hide based on modal state." 
-      class="fixed inset-0 transition-opacity bg-neutral-500 bg-opacity-75" 
+      class="fixed inset-0 transition-opacity bg-neutral bg-opacity-75" 
       aria-hidden="true">
     </div>
     <!-- This element is to trick the browser into centering the modal contents. -->
@@ -25,10 +25,10 @@
       x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
       x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
       x-description="Modal panel, show/hide based on modal state." 
-      class="mx-auto mt-12 overflow-hidden text-left align-bottom transition-all transform bg-neutral-100 rounded-lg shadow-xl w-center">
+      class="mx-auto mt-12 overflow-hidden text-left align-bottom transition-all transform bg-neutral rounded-lg shadow-xl w-center">
       
-        <section class="bg-base-100 rounded-lg shadow dark:bg-neutral-700 w-center">
-          <div class="mx-4 bg-base-100 border-gray-100 rounded-lg dark:bg-neutral-700 dark:border-gray-600 lg:mx-0">
+        <section class="bg-base-100 rounded-lg shadow  w-center">
+          <div class="mx-4 bg-base-100 border-gray-100 rounded-lg   lg:mx-0">
             <div class="flex items-center px-2 pt-3">
               <div class="flex-1 text-base font-semibold text-primary-content-300">{l "Create a new board"}</div>
               <div @click="open_create_board = false" ><Outline.XIcon class="w-5 h-5 text-primary-content-400 cursor-pointer hover:text-primary-content-200" /></div>
@@ -44,13 +44,13 @@
                 class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600"
                 name={:name}>
                 <Label class="block text-sm text-primary-content-300 font-regular">{l "Add a title"}</Label>
-                <TextInput class="block w-full text-primary-content-100 border-gray-600 rounded-md bg-blueGray-600 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                <TextInput class="block w-full text-primary-content-100 border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" />
               </Field>
               <Field 
                 name={:note}
                 class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600">
                 <Label class="block text-sm text-primary-content-300 font-regular">{l "Write an optional description"}</Label>
-                <TextArea class="block w-full text-primary-content-100 border border-gray-600 rounded-md bg-blueGray-600 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></TextArea>
+                <TextArea class="block w-full text-primary-content-100 border border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm"></TextArea>
               </Field>
               <button type="submit" class="flex items-center justify-center w-full p-4 text-sm font-medium text-center text-primary-content-100 border rounded-lg text-secondary hover:text-high-emphesis text-high-emphesis border-blueGray-800 bg-gradient-to-r from-purple-600 to-green-400 hover:from-blue hover:to-pink">{l "Publish"}</button>
             </Form>
