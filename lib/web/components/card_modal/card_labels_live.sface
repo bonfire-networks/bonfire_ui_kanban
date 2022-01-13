@@ -1,24 +1,24 @@
 <div @click.outside="labels = false" class="relative">
   <div
     @click="labels = true"  
-    class="flex items-center h-8 px-3 space-x-2 text-xs text-gray-700 bg-gray-200 rounded-sm cursor-pointer hover:bg-gray-300">
-    <Outline.TagIcon class="w-4 h-4 text-gray-600" />
-    <span class="text-gray-700 capitalize">
+    class="flex items-center h-8 px-3 space-x-2 text-xs text-primary-content-700 bg-neutral-200 rounded-sm cursor-pointer hover:bg-neutral-300">
+    <Outline.TagIcon class="w-4 h-4 text-primary-content-600" />
+    <span class="text-primary-content-700 capitalize">
       {l "label"}
     </span>
   </div>
-  <div x-show="labels" class="absolute right-0 z-40 p-2 bg-white border border-gray-200 rounded shadow-lg top-9 w-72">
-    <div class="flex items-center pb-2 text-sm text-gray-500 border-b">
+  <div x-show="labels" class="absolute right-0 z-40 p-2 bg-base-100 border border-gray-200 rounded shadow-lg top-9 w-72">
+    <div class="flex items-center pb-2 text-sm text-primary-content-500 border-b">
       <div class="flex-1 text-center">{l "labels"}</div>
       <span @click="labels = false">
       <Outline.XIcon 
-        class="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-500" />
+        class="w-4 h-4 text-primary-content-400 cursor-pointer hover:text-primary-content-500" />
       </span>
     </div>
     <div class="flex flex-col mt-2 space-y-2">
-      <input class="block w-full h-8 max-w-lg px-2 bg-gray-100 border border-gray-300 rounded-sm rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" placeholder="Search labels" />
+      <input class="block w-full h-8 max-w-lg px-2 bg-neutral-100 border border-gray-300 rounded-sm rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" placeholder="Search labels" />
       <div class="">
-        <div class="my-2 text-xs font-medium tracking-wide text-gray-500 uppercase">{l "labels"}</div>
+        <div class="my-2 text-xs font-medium tracking-wide text-primary-content-500 uppercase">{l "labels"}</div>
         <div class="flex flex-col space-y-1">
           <div class="flex-1 block w-full h-6 p-3 bg-green-400 rounded"></div>
           <div class="flex-1 block w-full h-6 p-3 bg-blue-400 rounded"></div>

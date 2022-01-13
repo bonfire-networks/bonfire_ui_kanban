@@ -4,7 +4,7 @@
     @mouseover="toggle_like = true"
     @mouseout="toggle_like = false"
     class="relative h-24 p-2 rounded-lg cursor-pointer bg-gradient-to-r from-green-500 to-green-700">
-    <div class="text-base font-bold text-gray-100">{e(@board, :name, "Untitled board")}</div>
+    <div class="text-base font-bold text-primary-content-100">{e(@board, :name, "Untitled board")}</div>
     <div 
       x-show="toggle_like"
       x-transition:enter="transition ease-out duration-150"
@@ -14,7 +14,7 @@
       x-transition:leave-start="opacity-100 transform scale-100"
       x-transition:leave-end="opacity-0 transform scale-90"  
       class="absolute bottom-2 right-2">
-      <Outline.StarIcon class="w-4 h-4 text-gray-300 transition transform hover:scale-125 hover:text-gray-200"  />
+      <Outline.StarIcon class="w-4 h-4 text-primary-content-300 transition transform hover:scale-125 hover:text-primary-content-200"  />
     </div>
   </div>
 </LiveRedirect>

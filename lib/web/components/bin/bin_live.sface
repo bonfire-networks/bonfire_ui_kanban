@@ -2,8 +2,8 @@
   <div class="relative flex flex-col max-h-full whitespace-normal rounded bg-base-100 ">
     <div class="flex items-center justify-between p-2">
         <h3 class="text-sm font-bold text-base-content">{e(@bin, :name, "Untitled bin")}</h3>
-        <!-- <span class="flex items-center w-6 h-6 rounded cursor-pointer place-content-center hover:bg-gray-300">
-        <svg class="w-4 h-4 text-gray-600 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"/></svg>
+        <!-- <span class="flex items-center w-6 h-6 rounded cursor-pointer place-content-center hover:bg-neutral-300">
+        <svg class="w-4 h-4 text-primary-content-600 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"/></svg>
         </span> -->
     </div>
     <div class="flex-1 min-h-0 mx-1 overflow-x-hidden overflow-y-auto text-sm z-1">

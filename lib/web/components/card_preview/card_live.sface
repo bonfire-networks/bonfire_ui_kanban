@@ -17,16 +17,16 @@
       <span class="text-xs text-base-content text-opacity-70">2</span>
     </div>
     <!-- <div class="flex items-center space-x-1 text-xs"> 
-      <Outline.CheckCircleIcon class="w-4 h-4 text-gray-700" />
-      <span class="text-xs text-gray-700">3/5</span>
+      <Outline.CheckCircleIcon class="w-4 h-4 text-primary-content-700" />
+      <span class="text-xs text-primary-content-700">3/5</span>
     </div> -->
     <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
       Due {e(@card, :due, "")}
     </span>
   </div>
   <div class="grid mt-1 justify-items-end">
-    <img :if={@card.receiver} class="inline-block w-6 h-6 bg-gray-200 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}>
-    <img :if={@card.provider} class="inline-block w-6 h-6 bg-gray-200 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}>
+    <img :if={@card.receiver} class="inline-block w-6 h-6 bg-neutral-200 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}>
+    <img :if={@card.provider} class="inline-block w-6 h-6 bg-neutral-200 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}>
   </div>
 </div>
 </LivePatch>

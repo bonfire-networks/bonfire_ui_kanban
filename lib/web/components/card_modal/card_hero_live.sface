@@ -2,10 +2,10 @@
   <div class="flex-1">
     <div class="flex items-center space-x-3">
       <div>
-        <div class="text-xl font-bold text-gray-800">
+        <div class="text-xl font-bold text-primary-content-800">
           {e(@card, :name, "Untitled card")}
         </div>
-        <!-- <span class="flex mt-1 text-sm text-gray-600">
+        <!-- <span class="flex mt-1 text-sm text-primary-content-600">
           {l "Task in"}
           <LivePatch
           to={"/list/"<> "test"}
@@ -18,8 +18,8 @@
   </div>
   <LivePatch
     to={"/kanban/b/"<>@board_id}>
-    <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-gray-200">
-      <Solid.XIcon class="w-5 h-5 text-gray-500" />
+    <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-neutral-200">
+      <Solid.XIcon class="w-5 h-5 text-primary-content-500" />
     </span>
   </LivePatch>
 </div>

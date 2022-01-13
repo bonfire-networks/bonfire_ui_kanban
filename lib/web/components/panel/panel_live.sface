@@ -9,14 +9,14 @@
     x-transition:leave-end="translate-x-full" 
     class="w-screen max-w-sm" 
     x-description="Slide-over panel, show/hide based on slide-over state.">
-    <div class="flex flex-col h-full py-6 overflow-y-scroll bg-gray-200 shadow-xl">
+    <div class="flex flex-col h-full py-6 overflow-y-scroll bg-neutral-200 shadow-xl">
       <div class="px-4 sm:px-6">
         <div class="flex items-start justify-between pb-3 border-b border-gray-300">
-          <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+          <h2 class="text-lg font-medium text-primary-content-900" id="slide-over-title">
             {l "Menu"}
           </h2>
           <div class="flex items-center ml-3 h-7">
-            <button type="button" class="text-gray-400 rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" @click="open_panel = false">
+            <button type="button" class="text-primary-content-400 rounded-md hover:text-primary-content-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" @click="open_panel = false">
               <span class="sr-only">{l "Close panel"}</span>
               <svg class="w-6 h-6" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -28,16 +28,16 @@
       <div class="relative flex-1 px-4 mt-6 sm:px-6">
         <div class="">
           <div class="flex items-center space-x-2">
-            <Outline.MenuAlt2Icon class="w-4 h-4 text-gray-700" />
-            <div class="text-sm font-semibold text-gray-700 capitalize">{l "About this board"}</div>
+            <Outline.MenuAlt2Icon class="w-4 h-4 text-primary-content-700" />
+            <div class="text-sm font-semibold text-primary-content-700 capitalize">{l "About this board"}</div>
           </div>
-          <div class="mt-1 text-sm prose-sm prose text-gray-700">{e(@board, :note, "")}</div>
+          <div class="mt-1 text-sm prose-sm prose text-primary-content-700">{e(@board, :note, "")}</div>
         </div>
 
         <div class="mt-6">
           <div class="flex items-center space-x-2">
-            <Outline.ChatAlt2Icon class="w-4 h-4 text-gray-700" />
-            <div class="text-sm font-semibold text-gray-700 capitalize">{l "Activity"}</div>
+            <Outline.ChatAlt2Icon class="w-4 h-4 text-primary-content-700" />
+            <div class="text-sm font-semibold text-primary-content-700 capitalize">{l "Activity"}</div>
           </div>
         </div>
       </div>
