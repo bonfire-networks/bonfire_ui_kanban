@@ -1,7 +1,7 @@
 <div @click.outside="labels = false" class="relative">
   <div
     @click="labels = true"  
-    class="flex items-center h-8 px-3 space-x-2 text-xs text-primary-content-700 bg-neutral rounded-sm cursor-pointer hover:bg-neutral-300">
+    class="flex items-center h-8 px-3 space-x-2 text-xs text-primary-content-700 bg-neutral rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
     <Outline.TagIcon class="w-4 h-4 text-primary-content-600" />
     <span class="text-primary-content-700 capitalize">
       {l "label"}

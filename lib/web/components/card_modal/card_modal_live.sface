@@ -15,7 +15,7 @@
         x-transition:leave-start="opacity-100" 
         x-transition:leave-end="opacity-0" 
         x-description="Background overlay, show/hide based on modal state." 
-        class="fixed inset-0 transition-opacity bg-neutral bg-opacity-75" 
+        class="fixed inset-0 transition-opacity bg-neutral bg-opacity-40" 
         aria-hidden="true">
       </div>
     </LivePatch>

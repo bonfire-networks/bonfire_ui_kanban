@@ -18,7 +18,7 @@
   </div>
   <LivePatch
     to={"/kanban/b/"<>@board_id}>
-    <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-neutral">
+    <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-neutral hover:bg-opacity-30 ">
       <Solid.XIcon class="w-5 h-5 text-primary-content-500" />
     </span>
   </LivePatch>
