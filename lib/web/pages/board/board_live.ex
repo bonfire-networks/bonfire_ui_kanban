@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.BoardLive do
-  use Bonfire.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "full_template.html"}]}
+  use Bonfire.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "without_sidebar.html"}]}
 
   use AbsintheClient, schema: Bonfire.GraphQL.Schema, action: [mode: :internal]
 
