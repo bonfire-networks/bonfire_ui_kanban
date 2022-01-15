@@ -15,7 +15,7 @@
         x-transition:leave-start="opacity-100" 
         x-transition:leave-end="opacity-0" 
         x-description="Background overlay, show/hide based on modal state." 
-        class="fixed inset-0 transition-opacity bg-neutral bg-opacity-40" 
+        class="fixed inset-0 transition-opacity bg-base-100 bg-opacity-40" 
         aria-hidden="true">
       </div>
     </LivePatch>
@@ -28,7 +28,7 @@
       x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
       x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
       x-description="Modal panel, show/hide based on modal state." 
-      class="min-h-full mx-auto mt-6 overflow-hidden text-left align-bottom transition-all transform bg-neutral rounded-lg shadow-xl h-modal w-center max-w-screen-md">
+      class="min-h-full mx-auto mt-6 overflow-hidden text-left align-bottom transition-all transform bg-base-100 rounded-lg shadow-xl h-modal w-center max-w-screen-md">
       
         <section class="p-4" >
         <!-- Card Title and escape -->

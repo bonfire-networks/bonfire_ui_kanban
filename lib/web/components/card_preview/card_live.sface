@@ -25,8 +25,8 @@
     </span>
   </div>
   <div class="grid mt-1 justify-items-end">
-    <img :if={@card.receiver} class="inline-block w-6 h-6 bg-neutral rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}>
-    <img :if={@card.provider} class="inline-block w-6 h-6 bg-neutral rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}>
+    <img :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}>
+    <img :if={@card.provider} class="inline-block w-6 h-6 bg-base-100 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}>
   </div>
 </div>
 </LivePatch>
