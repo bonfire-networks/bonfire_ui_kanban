@@ -155,7 +155,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   def handle_event("create_bin", %{"input_tag" => input_tag} = attrs, socket) do
     with {:ok, [%{"text" => label, "value" => id}]} <- Jason.decode(input_tag) do
-      IO.inspect(create_bin: id)
+      debug(create_bin: id)
       if is_ulid?(id) do
         {:noreply, socket |> assign(bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}] )}
       else
@@ -167,8 +167,8 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   def handle_event("dropped", %{"dragged_id" => "bin:"<>dragged_id, "dropped_index" => dropped_index} = params, socket) do
 
-    IO.inspect(dragged_id: dragged_id)
-    IO.inspect(dropped_index: dropped_index)
+    debug(dragged_id: dragged_id)
+    debug(dropped_index: dropped_index)
 
     # implementation for bin ordering
     Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: e(socket.assigns, :board_id, nil), rank_set: dropped_index}) |> Bonfire.Repo.upsert
@@ -179,10 +179,10 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   def handle_event("dropped", %{"dragged_id" => dragged_id, "dragged_from_id"=> previous_bin, "dropped_to_id" => new_bin, "dropped_index" => dropped_index} = params, socket) do
 
-    IO.inspect(dragged_id: dragged_id)
-    IO.inspect(previous_bin: previous_bin)
-    IO.inspect(new_bin: new_bin)
-    IO.inspect(dropped_index: dropped_index)
+    debug(dragged_id: dragged_id)
+    debug(previous_bin: previous_bin)
+    debug(new_bin: new_bin)
+    debug(dropped_index: dropped_index)
 
     # implementation for bin membership & card ordering:
 
@@ -190,7 +190,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     if previous_bin !=new_bin do
       existing_tags = e(socket.assigns, :all_cards, dragged_id, :tags, [])
       new_tags = [e(socket.assigns, :task_tag_id, nil), new_bin] ++ Enum.reject(existing_tags, &( &1.id==previous_bin))
-      # IO.inspect(new_tags, label: "new_tags")
+      # debug(new_tags, label: "new_tags")
       ValueFlows.Util.try_tag_thing(current_user(socket), dragged_id, new_tags)
     end
 
@@ -213,7 +213,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   def handle_event(action, attrs, socket), do: Bonfire.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
 
   def handle_params(%{"card_id" => id}=_params, _uri, socket) do
-    IO.inspect(card_id: id)
+    debug(card_id: id)
     {:noreply, assign(socket,
       card_id: id,
       selected_card: e(socket.assigns, :all_cards, id, nil)
