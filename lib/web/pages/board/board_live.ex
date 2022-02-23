@@ -190,7 +190,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     if previous_bin !=new_bin do
       existing_tags = e(socket.assigns, :all_cards, dragged_id, :tags, [])
       new_tags = [e(socket.assigns, :task_tag_id, nil), new_bin] ++ Enum.reject(existing_tags, &( &1.id==previous_bin))
-      # debug(new_tags, label: "new_tags")
+      # debug(new_tags, "new_tags")
       ValueFlows.Util.try_tag_thing(current_user(socket), dragged_id, new_tags)
     end
 
