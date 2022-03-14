@@ -3,13 +3,13 @@
     <div :if={@card.receiver} class="flex-1">
       <div class="mb-1 text-xs font-medium tracking-wide text-primary-content-500 uppercase">{l "Requested by"}</div>
       <div class="flex items-center space-x-1">
-        <LazyImage :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 bg-opacity-75 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}>
+        <LazyImage :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 bg-opacity-75 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}/>
       </div>
     </div>
     <div :if={@card.provider} class="flex-1">
       <div class="mb-1 text-xs font-medium tracking-wide text-primary-content-500 uppercase">{l "Assigned to"}</div>
       <div class="flex items-center space-x-1">
-        <LazyImage class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}>
+        <LazyImage class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}/>
         <!-- <div class="flex items-center bg-base-100 rounded-full cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300 w-7 h-7 place-content-center">
           <Outline.PlusIcon class="w-5 h-5 text-primary-content-600" />
         </div> -->
