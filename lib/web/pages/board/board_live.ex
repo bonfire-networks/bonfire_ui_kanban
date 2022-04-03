@@ -6,7 +6,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   alias Bonfire.UI.ValueFlows.{IntentCreateActivityLive, CreateMilestoneLive, ProposalFeedLive, FiltersLive}
   alias Bonfire.Web.LivePlugs
   alias Bonfire.Me.Users
-  alias Bonfire.Me.Web.{CreateUserLive, LoggedDashboardLive}
+  alias Bonfire.Me.Web.CreateUserLive
 
   # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.Integration.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
   @default_filters %{}
