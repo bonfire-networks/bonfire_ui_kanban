@@ -1,32 +1,32 @@
 <div @click.outside="members = false" class="relative">
   <div
     @click="members = true" 
-    class="flex items-center h-8 px-3 space-x-2 text-xs text-primary-content-700 bg-base-100 bg-opacity-40 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
-    <Outline.UserAddIcon class="w-4 h-4 text-primary-content-600" />
-    <span class="text-primary-content-700 capitalize">
+    class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content-700 bg-base-100 bg-opacity-40 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
+    <Outline.UserAddIcon class="w-4 h-4 text-base-content-600" />
+    <span class="text-base-content-700 capitalize">
       {l "Assign"}
     </span>
   </div>
   <div x-show="members" class="absolute right-0 z-40 p-2 bg-base-100 border border-gray-200 rounded shadow-lg top-9 w-72">
-    <div class="flex items-center pb-2 text-sm text-primary-content-500 border-b">
+    <div class="flex items-center pb-2 text-sm text-base-content-500 border-b">
       <div class="flex-1 text-center">{l "members"}</div>
       <span @click="members = false">
       <Outline.XIcon 
-        class="w-4 h-4 text-primary-content-400 cursor-pointer hover:text-primary-content-500" />
+        class="w-4 h-4 text-base-content-400 cursor-pointer hover:text-base-content-500" />
       </span>
     </div>
     <div class="flex flex-col mt-2 space-y-2">
       <input class="block w-full h-8 max-w-lg px-2 bg-base-100 bg-opacity-40 border border-gray-300 rounded-sm rounded-md shadow-sm focus:ring-secondary-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" placeholder="Search members" />
       <div class="">
-        <div class="my-3 text-xs font-medium tracking-wide text-primary-content-500 uppercase">{l "Board members"}</div>
+        <div class="my-3 text-xs font-medium tracking-wide text-base-content-500 uppercase">{l "Board members"}</div>
         <div class="flex flex-col space-y-2">
           <div class="flex items-center space-x-2">
             <div class="bg-neutral-400 rounded-full w-7 h-7"></div>
-            <div class="flex-1 text-sm text-primary-content-600 text-medium">Ivan Minutillo</div>
+            <div class="flex-1 text-sm text-base-content-600 text-medium">Ivan Minutillo</div>
           </div>
           <div class="flex items-center space-x-2">
             <div class="bg-neutral-400 rounded-full w-7 h-7"></div>
-            <div class="flex-1 text-sm text-primary-content-600 text-medium">Alice Cooper</div>
+            <div class="flex-1 text-sm text-base-content-600 text-medium">Alice Cooper</div>
           </div>
         </div>
       </div>

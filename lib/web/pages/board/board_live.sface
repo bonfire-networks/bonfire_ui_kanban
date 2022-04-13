@@ -21,14 +21,14 @@
               <Outline.StarIcon class="w-4 h-4 text-base-content" />
             </div>
           </div>
-          <div @click="open_panel = true" class="items-center hover:bg-neutral hover:bg-opacity-30 -600 hidden text-primary-content-100 text-sm p-3 py-1.5 cursor-pointer rounded bg-base-100 bg-opacity-40 md:flex">
+          <div @click="open_panel = true" class="items-center hover:bg-neutral hover:bg-opacity-30 -600 hidden text-base-content-100 text-sm p-3 py-1.5 cursor-pointer rounded bg-base-100 bg-opacity-40 md:flex">
               <svg class="h-4 mr-2 text-white cursor-pointer fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"/></svg>
               {l "Show menu"}
           </div>
         </div>
 
         <div class="relative flex-grow mx-2">
-          <div data-group="bins" class="absolute top-0 bottom-0 left-0 right-0 pb-4 overflow-x-scroll overflow-y-hidden dropzone whitespace-nowrap flex-colums">
+          <div data-group="bins" class="absolute top-0 bottom-0 left-0 right-0 pb-4 h-full overflow-x-scroll dropzone whitespace-nowrap flex-colums" style="min-height: 700px">
 
             {#for bin <- @bins}
               <Bonfire.UI.Kanban.BinLive board_id={@board.id} bin={bin} drop_zone_id={e(bin, :id, nil)} />

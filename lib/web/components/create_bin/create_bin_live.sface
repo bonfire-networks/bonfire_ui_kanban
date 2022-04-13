@@ -1,18 +1,17 @@
 <div 
-  x-cloak
-  x-data="{open: false}"
+  x-data="{open: true}"
   class="inline-block h-full mx-1 align-top rounded w-72 whitespace-nowrap flex-no-shrink">
   <div
-    class="">
+    class="h-full">
     <div
-      class="flex items-center h-10 p-2 space-x-2 rounded cursor-pointer bg-base-100 hover:bg-opacity-80"
+      class="flex items-center h-32 p-2 space-x-2 rounded cursor-pointer bg-base-100 hover:bg-opacity-80" 
       x-show="open == false" 
       @click="open = true"
     >
       <Solid.PlusIcon class="w-5 h-5 text-base-content" />
       <span class="text-sm text-base-content">{l "Add another list"}</span>
     </div>
-    <div x-show="open" class="p-2 rounded bg-base-100">
+    <div x-show="open == true" class="p-2 rounded bg-base-100">
       <form phx-submit="create_bin">
       <label class="sr-only">{l "Add a title"}</label>
 

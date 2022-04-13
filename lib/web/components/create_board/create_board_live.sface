@@ -30,8 +30,8 @@
         <section class="bg-base-100 rounded-lg shadow  w-center">
           <div class="mx-4 bg-base-100 border-gray-100 rounded-lg   lg:mx-0">
             <div class="flex items-center px-2 pt-3">
-              <div class="flex-1 text-base font-semibold text-primary-content-300">{l "Create a new board"}</div>
-              <div @click="open_create_board = false" ><Outline.XIcon class="w-5 h-5 text-primary-content-400 cursor-pointer hover:text-primary-content-200" /></div>
+              <div class="flex-1 text-base font-semibold text-base-content-300">{l "Create a new board"}</div>
+              <div @click="open_create_board = false" ><Outline.XIcon class="w-5 h-5 text-base-content-400 cursor-pointer hover:text-base-content-200" /></div>
             </div>
             <Form
               class="flex flex-col w-full p-2"
@@ -43,16 +43,16 @@
               <Field 
                 class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600"
                 name={:name}>
-                <Label class="block text-sm text-primary-content-300 font-regular">{l "Add a title"}</Label>
-                <TextInput class="block w-full text-primary-content-100 border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" />
+                <Label class="block text-sm text-base-content-300 font-regular">{l "Add a title"}</Label>
+                <TextInput class="block w-full text-base-content-100 border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" />
               </Field>
               <Field 
                 name={:note}
                 class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600">
-                <Label class="block text-sm text-primary-content-300 font-regular">{l "Write an optional description"}</Label>
-                <TextArea class="block w-full text-primary-content-100 border border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm"></TextArea>
+                <Label class="block text-sm text-base-content-300 font-regular">{l "Write an optional description"}</Label>
+                <TextArea class="block w-full text-base-content-100 border border-gray-600 rounded-md bg-blueGray-600 focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm"></TextArea>
               </Field>
-              <button type="submit" class="flex items-center justify-center w-full p-4 text-sm font-medium text-center text-primary-content-100 border rounded-lg text-secondary hover:text-high-emphesis text-high-emphesis border-blueGray-800 bg-gradient-to-r from-purple-600 to-green-400 hover:from-blue hover:to-pink">{l "Publish"}</button>
+              <button type="submit" class="flex items-center justify-center w-full p-4 text-sm font-medium text-center text-base-content-100 border rounded-lg text-secondary hover:text-high-emphesis text-high-emphesis border-blueGray-800 bg-gradient-to-r from-purple-600 to-green-400 hover:from-blue hover:to-pink">{l "Publish"}</button>
             </Form>
           </div>
         </section>
