@@ -17,8 +17,8 @@
       <span class="text-xs text-base-content text-opacity-70">2</span>
     </div>
     <!-- <div class="flex items-center space-x-1 text-xs"> 
-      <Outline.CheckCircleIcon class="w-4 h-4 text-base-content-700" />
-      <span class="text-xs text-base-content-700">3/5</span>
+      <Outline.CheckCircleIcon class="w-4 h-4 text-base-content opacity-70" />
+      <span class="text-xs text-base-content opacity-70">3/5</span>
     </div> -->
     <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
       Due {e(@card, :due, "")}

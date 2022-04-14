@@ -1,19 +1,19 @@
 <div @click.outside="dates = false" class="relative">
   <div 
     @click="dates = true"  
-    class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content-700 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
-    <Outline.CalendarIcon class="w-4 h-4 text-base-content-600" />
-    <span class="text-base-content-700 capitalize">
+    class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
+    <Outline.CalendarIcon class="w-4 h-4 text-base-content opacity-60" />
+    <span class="text-base-content opacity-70 capitalize">
       {l "dates"}
     </span>
   </div>
   
   <div x-show="dates" class="absolute right-0 z-40 p-2 bg-base-100 border border-gray-200 rounded shadow-lg top-9 w-72">
-    <div class="flex items-center pb-2 text-sm text-base-content-500 border-b">
+    <div class="flex items-center pb-2 text-sm text-base-content opacity-60 border-b">
       <div class="flex-1 text-center">{l "dates"}</div>
       <span @click="dates = false">
       <Outline.XIcon 
-        class="w-4 h-4 text-base-content-400 cursor-pointer hover:text-base-content-500" />
+        class="w-4 h-4 text-base-content opacity-60 cursor-pointer hover:text-base-content opacity-60" />
       </span>
     </div>
     <div class="flex flex-col mt-2 space-y-2">

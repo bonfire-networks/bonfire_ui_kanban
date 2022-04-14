@@ -28,7 +28,7 @@
       <div class="flex items-center mt-2 space-x-2">
         <button class="btn btn-primary">{l "Add list"}</button>
         <span @click="open = false">
-          <Solid.XIcon class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-100" />
+          <Solid.XIcon class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60" />
         </span>
       </div>
       </form>
