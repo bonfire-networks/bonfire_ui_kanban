@@ -7,5 +7,5 @@ bonfire_data_social="https://github.com/bonfire-networks/bonfire_data_social#mai
 pointers = "https://github.com/commonspub/pointers#main"
 bonfire_ui_valueflows="https://github.com/bonfire-networks/bonfire_ui_valueflows#main"
 bonfire_valueflows="https://github.com/bonfire-networks/bonfire_valueflows#main"
-absinthe_client="https://github.com/bonfire-networks/absinthe_client"
-bonfire_data_assort = "https://github.com/bonfire-networks/bonfire_data_assort"
+absinthe_client="https://github.com/bonfire-networks/absinthe_client#master"
+bonfire_data_assort = "https://github.com/bonfire-networks/bonfire_data_assort#master"
