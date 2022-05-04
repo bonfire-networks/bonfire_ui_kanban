@@ -23,7 +23,7 @@ defmodule Bonfire.UI.Kanban.DataCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Bonfire.UI.Kanban.DataCase
+      # import Bonfire.UI.Kanban.DataCase
     end
   end
 

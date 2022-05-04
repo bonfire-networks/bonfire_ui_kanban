@@ -26,7 +26,7 @@ defmodule Bonfire.UI.Kanban.ConnCase do
       import Bonfire.UI.Common.Testing.Helpers
 
       import Phoenix.LiveViewTest
-      import Bonfire.UI.Kanban.ConnCase
+      # import Bonfire.UI.Kanban.ConnCase
       import Bonfire.UI.Kanban.Test.ConnHelpers
       import Bonfire.UI.Kanban.Test.FakeHelpers
       # alias Bonfire.UI.Kanban.Fake
