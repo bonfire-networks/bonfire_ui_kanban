@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.BoardLive do
-  use Bonfire.UI.Common.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "without_sidebar.html"}]}
+  use Bonfire.UI.Common.Web, :surface_view
 
   use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
 
@@ -65,7 +65,8 @@ defmodule Bonfire.UI.Kanban.BoardLive do
       board_id: id,
       card_id: params[:card_id],
       board: process |> Map.drop([:intended_inputs, :intended_outputs]),
-      task_tag_id: task_tag_id
+      task_tag_id: task_tag_id,
+      without_sidebar: true
     )}
   end
 

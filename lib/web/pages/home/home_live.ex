@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.HomeLive do
-  use Bonfire.UI.Common.Web, {:surface_view, [layout: {Bonfire.UI.Social.Web.LayoutView, "without_sidebar.html"}]}
+  use Bonfire.UI.Common.Web, :surface_view
   use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
 
   alias Bonfire.Me.Web.LivePlugs
@@ -23,7 +23,8 @@ defmodule Bonfire.UI.Kanban.HomeLive do
     |> assign(
       page_title: "All boards",
       selected_tab: "discover",
-      boards: processes(socket) |> IO.inspect
+      boards: processes(socket),
+      without_sidebar: true
     )}
   end
 
