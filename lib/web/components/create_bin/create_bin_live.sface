@@ -16,8 +16,8 @@
       <label class="sr-only">{l "Add a title"}</label>
 
       <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
-        <input name="input_tag" placeholder="Enter or select a list title..." class="block w-full align-top resize-none border-base-200 bg-base-200 text-base-content" />
-        <select class="hidden">
+        <input name="input_tag" placeholder="Enter or select a list title..." class="tagify block w-full align-top resize-none border-base-200 bg-base-200 text-base-content" />
+        <select class="tagify hidden">
           {#for bin <- @suggested_bins}
             <option class="text-base-content" value={bin.id}>{bin.name}</option>
           {/for}
