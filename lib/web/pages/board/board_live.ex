@@ -4,9 +4,9 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
 
   alias Bonfire.UI.ValueFlows.{IntentCreateActivityLive, CreateMilestoneLive, ProposalFeedLive, FiltersLive}
-  alias Bonfire.Me.Web.LivePlugs
+  alias Bonfire.UI.Me.LivePlugs
   alias Bonfire.Me.Users
-  alias Bonfire.Me.Web.CreateUserLive
+  alias Bonfire.UI.Me.CreateUserLive
 
   # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.Integration.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
   @default_filters %{}
