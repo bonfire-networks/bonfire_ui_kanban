@@ -214,7 +214,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   def handle_event(action, attrs, socket), do: Bonfire.UI.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
 
-  def handle_params(%{"card_id" => id}=_params, _uri, socket) do
+  def do_handle_params(%{"card_id" => id}=_params, _uri, socket) do
     debug(card_id: id)
     {:noreply, assign(socket,
       card_id: id,
@@ -222,16 +222,25 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     )}
   end
 
-  def handle_params(_, _uri, socket) do
+  def do_handle_params(_, _uri, socket) do
     {:noreply, assign(socket, card_id: nil, selected_card: nil)}
   end
 
-  def handle_params(%{"filter" => status}, _, %{assigns: %{process: process}} = socket) do
+  def do_handle_params(%{"filter" => status}, _, %{assigns: %{process: process}} = socket) do
     process = process(%{id: process.id, intent_filter: %{"status" => status}}, socket)
     {:noreply, socket |> assign(process: process)}
   end
-  def handle_params(params, attrs, socket), do: Bonfire.UI.Common.LiveHandlers.handle_params(params, attrs, socket, __MODULE__)
+  def do_handle_params(params, attrs, socket), do: {:noreply, socket}
+
+  def handle_params(params, uri, socket) do
+    # poor man's hook I guess
+    with {_, socket} <- Bonfire.UI.Common.LiveHandlers.handle_params(params, uri, socket) do
+      undead_params(socket, fn ->
+        do_handle_params(params, uri, socket)
+      end)
+    end
+  end
 
 
-    def handle_info(info, socket), do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
+  def handle_info(info, socket), do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
 end
