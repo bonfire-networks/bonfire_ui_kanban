@@ -173,7 +173,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     debug(dropped_index: dropped_index)
 
     # implementation for bin ordering
-    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: e(socket.assigns, :board_id, nil), rank_set: dropped_index}) |> Bonfire.Common.Repo.upsert
+    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: e(socket.assigns, :board_id, nil), rank_set: dropped_index}) |> Bonfire.Common.Repo.insert_or_ignore
 
     {:noreply, socket}
 
@@ -197,7 +197,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     end
 
     # save the order
-    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: new_bin, rank_set: dropped_index}) |> Bonfire.Common.Repo.upsert
+    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: new_bin, rank_set: dropped_index}) |> Bonfire.Common.Repo.insert_or_ignore
 
     {:noreply, socket}
 
