@@ -25,8 +25,8 @@
     </span>
   </div>
   <div class="grid mt-1 justify-items-end">
-    <LazyImage :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 rounded-full" src={"#{avatar_url(@card.receiver)}"} alt={e(@card, :receiver, :name, "")}/>
-    <LazyImage :if={@card.provider} class="inline-block w-6 h-6 bg-base-100 rounded-full" src={"#{avatar_url(@card.provider)}"} alt={e(@card, :provider, :name, "")}/>
+    <Bonfire.UI.Common.AvatarLive :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 rounded-full" user={@card.receiver} alt={e(@card, :receiver, :name, "")}/>
+    <Bonfire.UI.Common.AvatarLive :if={@card.provider} class="inline-block w-6 h-6 bg-base-100 rounded-full" user={@card.provider} alt={e(@card, :provider, :name, "")}/>
   </div>
 </div>
 </LivePatch>
