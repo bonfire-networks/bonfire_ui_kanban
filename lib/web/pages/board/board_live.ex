@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.BoardLive do
-  use Bonfire.UI.Common.Web, :surface_view
+  use Bonfire.UI.Common.Web, :surface_live_view
 
   use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
 
@@ -71,7 +71,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   end
 
   def upstream_tag_id(current_user, tag_slug) do
-    ValueFlows.Util.maybe_classification_id(current_user, Bonfire.UI.Kanban.Integration.remote_tag_prefix<>tag_slug)
+    ValueFlows.Util.maybe_classification_id(current_user, "#{Bonfire.UI.Kanban.Integration.remote_tag_prefix()}#{tag_slug}")
   end
 
   @quantity_fields """
@@ -156,14 +156,19 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   end
 
   def handle_event("create_bin", %{"input_tag" => input_tag} = attrs, socket) do
+    debug(input_tag)
     with {:ok, [%{"text" => label, "value" => id}]} <- Jason.decode(input_tag) do
-      debug(create_bin: id)
+      debug(id, "create_bin ID")
       if is_ulid?(id) do
         {:noreply, socket |> assign(bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}] )}
       else
-        # TODO
+        # TODO: create new?
         {:noreply, socket}
       end
+    else e ->
+      # TODO: not JSON?
+      error(e)
+      {:noreply, socket}
     end
   end
 

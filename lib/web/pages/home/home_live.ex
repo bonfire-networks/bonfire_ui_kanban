@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.HomeLive do
-  use Bonfire.UI.Common.Web, :surface_view
+  use Bonfire.UI.Common.Web, :surface_live_view
   use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
 
   alias Bonfire.UI.Me.LivePlugs

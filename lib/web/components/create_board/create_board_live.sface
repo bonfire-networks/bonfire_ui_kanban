@@ -35,7 +35,7 @@
             </div>
             <Form
               class="flex flex-col w-full p-2"
-              for={e(assigns, :globals, ValueFlows.Process, :changeset, ValueFlows.Process.LiveHandler.changeset())}
+              for={e(@__context__, ValueFlows.Process, :changeset, ValueFlows.Process.LiveHandler.changeset())}
               opts={autocomplete: "off"}
               submit="ValueFlows.Process:create">
               <input type="hidden" name="redirect_after" value="/kanban/b/"/>
