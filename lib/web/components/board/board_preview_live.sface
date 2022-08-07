@@ -14,7 +14,7 @@
       x-transition:leave-start="opacity-60 transform scale-100"
       x-transition:leave-end="opacity-0 transform scale-90"  
       class="absolute bottom-2 right-2">
-      <Outline.StarIcon class="w-4 h-4 text-base-content opacity-60 transition transform hover:scale-125 hover:text-base-content opacity-60"  />
+      <Icon outline="Star" class="w-4 h-4 text-base-content opacity-60 transition transform hover:scale-125 hover:text-base-content opacity-60"  />
     </div>
   </div>
 </LiveRedirect>

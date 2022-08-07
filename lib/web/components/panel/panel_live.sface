@@ -28,7 +28,7 @@
       <div class="relative flex-1 px-4 mt-6 sm:px-6">
         <div class="">
           <div class="flex items-center space-x-2">
-            <Outline.MenuAlt2Icon class="w-4 h-4 text-base-content opacity-70" />
+            <Icon outline="Menu-alt-2" class="w-4 h-4 text-base-content opacity-70" />
             <div class="text-sm font-semibold text-base-content opacity-70 capitalize">{l "About this board"}</div>
           </div>
           <div class="mt-1 text-sm prose-sm prose text-base-content opacity-70">{e(@board, :note, "")}</div>
@@ -36,7 +36,7 @@
 
         <div class="mt-6">
           <div class="flex items-center space-x-2">
-            <Outline.ChatAlt2Icon class="w-4 h-4 text-base-content opacity-70" />
+            <Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content opacity-70" />
             <div class="text-sm font-semibold text-base-content opacity-70 capitalize">{l "Activity"}</div>
           </div>
         </div>

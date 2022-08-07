@@ -18,7 +18,7 @@
             </LiveRedirect>
             <h3 class="mr-4 font-medium text-base-content">{e(@board, :name, "Untitled")}</h3>
             <div class="flex items-center rounded-sm bg-base-100 w-7 h-7 place-content-center">
-              <Outline.StarIcon class="w-4 h-4 text-base-content" />
+              <Icon outline="Star" class="w-4 h-4 text-base-content" />
             </div>
           </div>
           <div @click="open_panel = true" class="items-center hover:bg-neutral hover:bg-opacity-30 -600 hidden text-base-content opacity-60 text-sm p-3 py-1.5 cursor-pointer rounded bg-base-100 bg-opacity-40 md:flex">
