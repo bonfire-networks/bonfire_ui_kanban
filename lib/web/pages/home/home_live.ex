@@ -4,8 +4,11 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   alias Bonfire.UI.Me.LivePlugs
   alias Bonfire.Me.Users
+
   prop selected_tab, :string, default: "publish"
 
+
+  declare_extension("Kanban", icon: "bi:kanban-fill")
 
   def mount(params, session, socket) do
     live_plug params, session, socket, [
