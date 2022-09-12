@@ -1,16 +1,16 @@
 <main class="flex flex-col items-center w-full max-w-screen-md mx-auto mt-8">
-  <div class="w-32 h-32 mb-8 rounded-full "></div>
+  <div class="w-32 h-32 mb-8 rounded-full" />
   <Bonfire.UI.Kanban.NavigationLive page={@selected_tab} />
   {#case @selected_tab}
     {#match "discover"}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Icon outline="Star" class="w-5 h-5 text-base-content" />
-          <span class="block text-base font-medium text-base-content">{l "All boards"}</span>
+          <span class="block text-base font-medium text-base-content">{l("All boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           {#for board <- @boards}
-          <Bonfire.UI.Kanban.BoardPreviewLive board={board} />
+            <Bonfire.UI.Kanban.BoardPreviewLive board={board} />
           {/for}
         </div>
       </div>
@@ -18,7 +18,7 @@
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Icon outline="Star" class="w-5 h-5 text-base-content" />
-          <span class="block text-base font-medium text-base-content">{l "Bookmarked boards"}</span>
+          <span class="block text-base font-medium text-base-content">{l("Bookmarked boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -29,7 +29,7 @@
 
         <div class="flex items-center mt-4 mb-3 space-x-2">
           <Icon outline="ViewBoards" class="w-5 h-5 text-base-content" />
-          <span class="block text-base font-medium text-base-content">{l "Active boards"}</span>
+          <span class="block text-base font-medium text-base-content">{l("Active boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -40,12 +40,11 @@
           <Bonfire.UI.Kanban.BoardPreviewLive />
         </div>
       </div>
-      
     {#match _}
-    <div class="w-full mt-4">
+      <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
           <Icon outline="Star" class="w-5 h-5 text-base-content" />
-          <span class="block text-base font-medium text-base-content">{l "All boards"}</span>
+          <span class="block text-base font-medium text-base-content">{l("All boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
           <Bonfire.UI.Kanban.BoardPreviewLive />
@@ -56,5 +55,5 @@
           <Bonfire.UI.Kanban.BoardPreviewLive />
         </div>
       </div>
-    {/case}
+  {/case}
 </main>

@@ -1,32 +1,43 @@
-<LivePatch   
- opts={id: e(@card, :id, "")}
- to={"/kanban/b/"<>@board_id<>"/c/"<>e(@card, :id, "")}
- class="block cursor-pointer draggable"
-  >
-<div 
-  class="p-2 m-1 my-2 border-b rounded shadow-sm bg-base-300 border-base-200 hover:bg-base-200"
-  >
-  <!-- LABEL -->
-  <div :if={!e(@card, :finished, nil) && !e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-blue-400 rounded-full"></div>
-  <div :if={e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-yellow-400 rounded-full"></div>
-  <div :if={e(@card, :finished, nil)} class="w-12 h-2 p-1 mb-1 bg-green-400 rounded-full"></div>
-  <p>{e(@card, :name, "")}</p>
-  <div class="flex items-center mt-2 space-x-3">
-    <div class="flex items-center space-x-1">
-      <Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content text-opacity-70" />
-      <span class="text-xs text-base-content text-opacity-70">2</span>
-    </div>
-    <!-- <div class="flex items-center space-x-1 text-xs"> 
+<LivePatch
+  opts={id: e(@card, :id, "")}
+  to={"/kanban/b/" <> @board_id <> "/c/" <> e(@card, :id, "")}
+  class="block cursor-pointer draggable"
+>
+  <div class="p-2 m-1 my-2 border-b rounded shadow-sm bg-base-300 border-base-200 hover:bg-base-200">
+    <!-- LABEL -->
+    <div
+      :if={!e(@card, :finished, nil) && !e(@card, :provider, nil)}
+      class="w-12 h-2 p-1 mb-1 bg-blue-400 rounded-full"
+    />
+    <div :if={e(@card, :provider, nil)} class="w-12 h-2 p-1 mb-1 bg-yellow-400 rounded-full" />
+    <div :if={e(@card, :finished, nil)} class="w-12 h-2 p-1 mb-1 bg-green-400 rounded-full" />
+    <p>{e(@card, :name, "")}</p>
+    <div class="flex items-center mt-2 space-x-3">
+      <div class="flex items-center space-x-1">
+        <Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content text-opacity-70" />
+        <span class="text-xs text-base-content text-opacity-70">2</span>
+      </div>
+      <!-- <div class="flex items-center space-x-1 text-xs"> 
       <Icon outline="CheckCircle" class="w-4 h-4 text-base-content opacity-70" />
       <span class="text-xs text-base-content opacity-70">3/5</span>
     </div> -->
-    <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
-      Due {e(@card, :due, "")}
-    </span>
+      <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
+        Due {e(@card, :due, "")}
+      </span>
+    </div>
+    <div class="grid mt-1 justify-items-end">
+      <Bonfire.UI.Common.AvatarLive
+        :if={@card.receiver}
+        class="inline-block w-6 h-6 bg-base-100 rounded-full"
+        user={@card.receiver}
+        alt={e(@card, :receiver, :name, "")}
+      />
+      <Bonfire.UI.Common.AvatarLive
+        :if={@card.provider}
+        class="inline-block w-6 h-6 bg-base-100 rounded-full"
+        user={@card.provider}
+        alt={e(@card, :provider, :name, "")}
+      />
+    </div>
   </div>
-  <div class="grid mt-1 justify-items-end">
-    <Bonfire.UI.Common.AvatarLive :if={@card.receiver} class="inline-block w-6 h-6 bg-base-100 rounded-full" user={@card.receiver} alt={e(@card, :receiver, :name, "")}/>
-    <Bonfire.UI.Common.AvatarLive :if={@card.provider} class="inline-block w-6 h-6 bg-base-100 rounded-full" user={@card.provider} alt={e(@card, :provider, :name, "")}/>
-  </div>
-</div>
 </LivePatch>

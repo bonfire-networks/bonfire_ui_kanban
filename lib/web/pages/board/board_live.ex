@@ -1,9 +1,15 @@
 defmodule Bonfire.UI.Kanban.BoardLive do
   use Bonfire.UI.Common.Web, :surface_live_view
 
-  use AbsintheClient, schema: Bonfire.API.GraphQL.Schema, action: [mode: :internal]
+  use AbsintheClient,
+    schema: Bonfire.API.GraphQL.Schema,
+    action: [mode: :internal]
 
-  alias Bonfire.UI.ValueFlows.{IntentCreateActivityLive, CreateMilestoneLive, ProposalFeedLive, FiltersLive}
+  alias Bonfire.UI.ValueFlows.IntentCreateActivityLive
+  alias Bonfire.UI.ValueFlows.CreateMilestoneLive
+  alias Bonfire.UI.ValueFlows.ProposalFeedLive
+  alias Bonfire.UI.ValueFlows.FiltersLive
+
   alias Bonfire.UI.Me.LivePlugs
   alias Bonfire.Me.Users
   alias Bonfire.UI.Me.CreateUserLive
@@ -11,67 +17,99 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.Integration.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
   @default_filters %{}
 
-
   def mount(params, session, socket) do
-    live_plug params, session, socket, [
+    live_plug(params, session, socket, [
       LivePlugs.LoadCurrentAccount,
       LivePlugs.LoadCurrentUser,
       Bonfire.UI.Common.LivePlugs.StaticChanged,
       Bonfire.UI.Common.LivePlugs.Csrf,
       Bonfire.UI.Common.LivePlugs.Locale,
-      &mounted/3,
-    ]
+      &mounted/3
+    ])
   end
 
-  defp mounted(%{"id"=> id} = params, _session, socket) do
-
+  defp mounted(%{"id" => id} = params, _session, socket) do
     current_user = current_user(socket)
-    task_tag_id = ValueFlows.Util.maybe_classification_id(current_user, Bonfire.UI.Kanban.Integration.remote_tag_id)
 
-    process = process(%{id: id}, socket) |> IO.inspect
+    task_tag_id =
+      ValueFlows.Util.maybe_classification_id(
+        current_user,
+        Bonfire.UI.Kanban.Integration.remote_tag_id()
+      )
 
-    all_cards = Map.new(process.intended_inputs ++ process.intended_outputs, fn x -> {x.id, x} end) #|> IO.inspect
+    process = process(%{id: id}, socket) |> IO.inspect()
+
+    # |> IO.inspect
+    all_cards =
+      Map.new(process.intended_inputs ++ process.intended_outputs, fn x ->
+        {x.id, x}
+      end)
 
     # TODO: generate bins from taxonomy
 
-    todo = process.intended_outputs |> Enum.reject(&(&1.finished))
+    todo = Enum.reject(process.intended_outputs, & &1.finished)
 
-    unassigned = todo |> Enum.reject(&(&1.provider))
-    todo = todo |> Enum.reject(&(!&1.provider))
+    unassigned = Enum.reject(todo, & &1.provider)
+    todo = Enum.reject(todo, &(!&1.provider))
 
-    someday = todo |> Enum.reject(&(&1.due))
-    todo = todo |> Enum.reject(&(!&1.due))
+    someday = Enum.reject(todo, & &1.due)
+    todo = Enum.reject(todo, &(!&1.due))
 
-    finished = process.intended_outputs |> Enum.reject(&(!&1.finished))
+    finished = Enum.reject(process.intended_outputs, &(!&1.finished))
 
     bins = [
-      %{id: upstream_tag_id(current_user, "Dependencies"), name: "Dependencies", cards: process.intended_inputs},
-      %{id: upstream_tag_id(current_user, "Up_for_grabs"), name: "Up for grabs", cards: unassigned},
-      %{id: upstream_tag_id(current_user, "Someday"), name: "Someday", cards: someday},
+      %{
+        id: upstream_tag_id(current_user, "Dependencies"),
+        name: "Dependencies",
+        cards: process.intended_inputs
+      },
+      %{
+        id: upstream_tag_id(current_user, "Up_for_grabs"),
+        name: "Up for grabs",
+        cards: unassigned
+      },
+      %{
+        id: upstream_tag_id(current_user, "Someday"),
+        name: "Someday",
+        cards: someday
+      },
       %{id: upstream_tag_id(current_user, "To_do"), name: "To do", cards: todo},
-      %{id: upstream_tag_id(current_user, "Urgent"), name: "Urgent", cards: nil},
-      %{id: upstream_tag_id(current_user, "Done"), name: "Done", cards: finished}
+      %{
+        id: upstream_tag_id(current_user, "Urgent"),
+        name: "Urgent",
+        cards: nil
+      },
+      %{
+        id: upstream_tag_id(current_user, "Done"),
+        name: "Done",
+        cards: finished
+      }
     ]
 
-    suggested_bins = bins |> Enum.reject(&(is_list(&1.cards) and length(&1.cards)>0))
-    bins = bins |> Enum.reject(&(!&1.cards || length(&1.cards)==0))
+    suggested_bins = Enum.reject(bins, &(is_list(&1.cards) and length(&1.cards) > 0))
 
-    {:ok, socket
-    |> assign(
-      page_title: "Board",
-      all_cards: all_cards,
-      bins: bins,
-      suggested_bins: suggested_bins,
-      board_id: id,
-      card_id: params[:card_id],
-      board: process |> Map.drop([:intended_inputs, :intended_outputs]),
-      task_tag_id: task_tag_id,
-      without_sidebar: true
-    )}
+    bins = Enum.reject(bins, &(!&1.cards || length(&1.cards) == 0))
+
+    {:ok,
+     assign(
+       socket,
+       page_title: "Board",
+       all_cards: all_cards,
+       bins: bins,
+       suggested_bins: suggested_bins,
+       board_id: id,
+       card_id: params[:card_id],
+       board: Map.drop(process, [:intended_inputs, :intended_outputs]),
+       task_tag_id: task_tag_id,
+       without_sidebar: true
+     )}
   end
 
   def upstream_tag_id(current_user, tag_slug) do
-    ValueFlows.Util.maybe_classification_id(current_user, "#{Bonfire.UI.Kanban.Integration.remote_tag_prefix()}#{tag_slug}")
+    ValueFlows.Util.maybe_classification_id(
+      current_user,
+      "#{Bonfire.UI.Kanban.Integration.remote_tag_prefix()}#{tag_slug}"
+    )
   end
 
   @quantity_fields """
@@ -143,12 +181,21 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   }
   """
 
-  def process(params \\ @default_filters, socket), do: liveql(socket, :process, Map.merge(@default_filters, params))
+  def process(params \\ @default_filters, socket),
+    do: liveql(socket, :process, Map.merge(@default_filters, params))
 
+  def handle_event(
+        "search",
+        %{"key" => "Enter", "value" => search_term} = attrs,
+        %{assigns: %{board_id: board_id}} = socket
+      ) do
+    process =
+      process(
+        %{id: board_id, intent_filter: %{"searchString" => search_term}},
+        socket
+      )
 
-  def handle_event("search", %{"key" => "Enter", "value" => search_term} = attrs, %{assigns: %{board_id: board_id}} = socket) do
-    process = process(%{id: board_id, intent_filter: %{"searchString" => search_term}}, socket)
-    {:noreply, socket |> assign(process: process)}
+    {:noreply, assign(socket, process: process)}
   end
 
   def handle_event("search", attrs, socket) do
@@ -157,35 +204,59 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   def handle_event("create_bin", %{"input_tag" => input_tag} = attrs, socket) do
     debug(input_tag)
+
     with {:ok, [%{"text" => label, "value" => id}]} <- Jason.decode(input_tag) do
       debug(id, "create_bin ID")
+
       if is_ulid?(id) do
-        {:noreply, socket |> assign(bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}] )}
+        {:noreply,
+         assign(socket,
+           bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}]
+         )}
       else
         # TODO: create new?
         {:noreply, socket}
       end
-    else e ->
-      # TODO: not JSON?
-      error(e)
-      {:noreply, socket}
+    else
+      e ->
+        # TODO: not JSON?
+        error(e)
+        {:noreply, socket}
     end
   end
 
-  def handle_event("dropped", %{"dragged_id" => "bin:"<>dragged_id, "dropped_index" => dropped_index} = params, socket) do
-
+  def handle_event(
+        "dropped",
+        %{
+          "dragged_id" => "bin:" <> dragged_id,
+          "dropped_index" => dropped_index
+        } = params,
+        socket
+      ) do
     debug(dragged_id: dragged_id)
     debug(dropped_index: dropped_index)
 
     # implementation for bin ordering
-    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: e(socket.assigns, :board_id, nil), rank_set: dropped_index}) |> Bonfire.Common.Repo.insert_or_ignore
+    Bonfire.Data.Assort.Ranked.changeset(%{
+      item_id: dragged_id,
+      scope_id: e(socket.assigns, :board_id, nil),
+      rank_set: dropped_index
+    })
+    |> Bonfire.Common.Repo.insert_or_ignore()
 
     {:noreply, socket}
-
   end
 
-  def handle_event("dropped", %{"dragged_id" => dragged_id, "dragged_from_id"=> previous_bin, "dropped_to_id" => new_bin, "dropped_index" => dropped_index} = params, socket) do
-
+  def handle_event(
+        "dropped",
+        %{
+          "dragged_id" => dragged_id,
+          "dragged_from_id" => previous_bin,
+          "dropped_to_id" => new_bin,
+          "dropped_index" => dropped_index
+        } = params,
+        socket
+      ) do
     debug(dragged_id: dragged_id)
     debug(previous_bin: previous_bin)
     debug(new_bin: new_bin)
@@ -194,18 +265,26 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     # implementation for bin membership & card ordering:
 
     # add the bin as a tag (and remove the previous one)
-    if previous_bin !=new_bin do
+    if previous_bin != new_bin do
       existing_tags = e(socket.assigns, :all_cards, dragged_id, :tags, [])
-      new_tags = [e(socket.assigns, :task_tag_id, nil), new_bin] ++ Enum.reject(existing_tags, &( &1.id==previous_bin))
+
+      new_tags =
+        [e(socket.assigns, :task_tag_id, nil), new_bin] ++
+          Enum.reject(existing_tags, &(&1.id == previous_bin))
+
       # debug(new_tags, "new_tags")
       ValueFlows.Util.try_tag_thing(current_user(socket), dragged_id, new_tags)
     end
 
     # save the order
-    Bonfire.Data.Assort.Ranked.changeset(%{item_id: dragged_id, scope_id: new_bin, rank_set: dropped_index}) |> Bonfire.Common.Repo.insert_or_ignore
+    Bonfire.Data.Assort.Ranked.changeset(%{
+      item_id: dragged_id,
+      scope_id: new_bin,
+      rank_set: dropped_index
+    })
+    |> Bonfire.Common.Repo.insert_or_ignore()
 
     {:noreply, socket}
-
   end
 
   # def handle_event("show", id, socket) do
@@ -217,35 +296,51 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   # }
   # end
 
-  def handle_event(action, attrs, socket), do: Bonfire.UI.Common.LiveHandlers.handle_event(action, attrs, socket, __MODULE__)
+  def handle_event(action, attrs, socket),
+    do:
+      Bonfire.UI.Common.LiveHandlers.handle_event(
+        action,
+        attrs,
+        socket,
+        __MODULE__
+      )
 
-  def do_handle_params(%{"card_id" => id}=_params, _uri, socket) do
+  def do_handle_params(%{"card_id" => id} = _params, _uri, socket) do
     debug(card_id: id)
-    {:noreply, assign(socket,
-      card_id: id,
-      selected_card: e(socket.assigns, :all_cards, id, nil)
-    )}
+
+    {:noreply,
+     assign(socket,
+       card_id: id,
+       selected_card: e(socket.assigns, :all_cards, id, nil)
+     )}
   end
 
   def do_handle_params(_, _uri, socket) do
     {:noreply, assign(socket, card_id: nil, selected_card: nil)}
   end
 
-  def do_handle_params(%{"filter" => status}, _, %{assigns: %{process: process}} = socket) do
+  def do_handle_params(
+        %{"filter" => status},
+        _,
+        %{assigns: %{process: process}} = socket
+      ) do
     process = process(%{id: process.id, intent_filter: %{"status" => status}}, socket)
-    {:noreply, socket |> assign(process: process)}
+
+    {:noreply, assign(socket, process: process)}
   end
+
   def do_handle_params(params, attrs, socket), do: {:noreply, socket}
 
   def handle_params(params, uri, socket) do
     # poor man's hook I guess
-    with {_, socket} <- Bonfire.UI.Common.LiveHandlers.handle_params(params, uri, socket) do
+    with {_, socket} <-
+           Bonfire.UI.Common.LiveHandlers.handle_params(params, uri, socket) do
       undead_params(socket, fn ->
         do_handle_params(params, uri, socket)
       end)
     end
   end
 
-
-  def handle_info(info, socket), do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
+  def handle_info(info, socket),
+    do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
 end

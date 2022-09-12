@@ -1,17 +1,18 @@
-<div 
+<div
   x-data="{
     open_create_board: false
   }"
-  class="flex items-center w-full px-3 shadow-lg rounded-box menu bg-base-100 horizontal">
+  class="flex items-center w-full px-3 shadow-lg rounded-box menu bg-base-100 horizontal"
+>
   <ul class="flex items-stretch flex-1 w-full">
-    <li class={"bordered": @page == "discover"}>
-      <LivePatch  to={"/kanban/discover"}>{l "Discover"}</LivePatch>
-    </li> 
+    <li class={bordered: @page == "discover"}>
+      <LivePatch to="/kanban/discover">{l("Discover")}</LivePatch>
+    </li>
 
-    <li class={"bordered": @page == "my-workspaces"}>
-      <LivePatch  to={"/kanban/my-workspaces"}>{l "My workspaces"}</LivePatch>
-    </li> 
+    <li class={bordered: @page == "my-workspaces"}>
+      <LivePatch to="/kanban/my-workspaces">{l("My workspaces")}</LivePatch>
+    </li>
   </ul>
-  <button @click="open_create_board = true" class="btn btn-secondary btn-sm">{l "Create a board"}</button>
-    <Bonfire.UI.Kanban.CreateBoardLive />
+  <button @click="open_create_board = true" class="btn btn-secondary btn-sm">{l("Create a board")}</button>
+  <Bonfire.UI.Kanban.CreateBoardLive />
 </div>

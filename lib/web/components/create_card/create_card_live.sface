@@ -1,31 +1,36 @@
-<div 
-  x-cloak
-  x-data="{open: false}"
-  class="">
-  <div 
-    x-show="open  == false" 
+<div x-cloak x-data="{open: false}" class="">
+  <div
+    x-show="open  == false"
     @click="open = true"
-    class="flex p-2 m-1 mb-2 space-x-1 rounded cursor-pointer text-base-content hover:bg-base-300">
+    class="flex p-2 m-1 mb-2 space-x-1 rounded cursor-pointer text-base-content hover:bg-base-300"
+  >
     <Icon solid="Plus" class="w-5 h-5 text-base-content" />
-    <span>{l "Add a card"}</span>
+    <span>{l("Add a card")}</span>
   </div>
   <div x-show="open" class="m-2 mx-1">
-  <form phx-submit="ValueFlows.Planning.Intent:create">
-    <label class="sr-only">{l "Add a title"}</label>
-    <input type="hidden" name="redirect_after" value={"/kanban/b/"<>@board_id<>"/c/"}/>
-    <input type="hidden" name="action" value="work" />
-    <input type="hidden" name="receiver" value={e(@current_user, :id, "me")} />
-    <HiddenInput :if={@board_id} name="output_of_id" value={e(@board_id, "")} />
-    <HiddenInput name="classified_as[]" value={Bonfire.UI.Kanban.Integration.remote_tag_id} />
-    <HiddenInput name="classified_as[]" value={@bin_id} />
-    <!-- <input name="name" placeholder="Enter a title" class="block w-full h-8 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" /> -->
-    <textarea name="name" placeholder="Enter a title" class="block w-full h-16 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" ></textarea>
-    <div class="flex items-center mt-2 space-x-2">
-      <button class="btn btn-primary">{l "Add card"}</button>
-      <span @click="open = false">
-        <Icon solid="X" class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60" />
-      </span>
-    </div>
+    <form phx-submit="ValueFlows.Planning.Intent:create">
+      <label class="sr-only">{l("Add a title")}</label>
+      <input type="hidden" name="redirect_after" value={"/kanban/b/" <> @board_id <> "/c/"}>
+      <input type="hidden" name="action" value="work">
+      <input type="hidden" name="receiver" value={e(@current_user, :id, "me")}>
+      <HiddenInput :if={@board_id} name="output_of_id" value={e(@board_id, "")} />
+      <HiddenInput name="classified_as[]" value={Bonfire.UI.Kanban.Integration.remote_tag_id()} />
+      <HiddenInput name="classified_as[]" value={@bin_id} />
+      <!-- <input name="name" placeholder="Enter a title" class="block w-full h-8 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" /> -->
+      <textarea
+        name="name"
+        placeholder="Enter a title"
+        class="block w-full h-16 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm"
+      />
+      <div class="flex items-center mt-2 space-x-2">
+        <button class="btn btn-primary">{l("Add card")}</button>
+        <span @click="open = false">
+          <Icon
+            solid="X"
+            class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60"
+          />
+        </span>
+      </div>
     </form>
   </div>
 </div>

@@ -1,20 +1,25 @@
-<LiveRedirect to={"/kanban/b/"<>e(@board, :id, "404")}>
-  <div 
+<LiveRedirect to={"/kanban/b/" <> e(@board, :id, "404")}>
+  <div
     x-data="{toggle_like : false}"
     @mouseover="toggle_like = true"
     @mouseout="toggle_like = false"
-    class="relative h-24 p-2 rounded-lg cursor-pointer bg-gradient-to-r from-green-500 to-green-700">
+    class="relative h-24 p-2 rounded-lg cursor-pointer bg-gradient-to-r from-green-500 to-green-700"
+  >
     <div class="text-base font-bold text-base-content opacity-60">{e(@board, :name, "Untitled board")}</div>
-    <div 
+    <div
       x-show="toggle_like"
       x-transition:enter="transition ease-out duration-150"
       x-transition:enter-start="opacity-0 transform scale-90"
       x-transition:enter-end="opacity-60 transform scale-100"
       x-transition:leave="transition ease-in duration-150"
       x-transition:leave-start="opacity-60 transform scale-100"
-      x-transition:leave-end="opacity-0 transform scale-90"  
-      class="absolute bottom-2 right-2">
-      <Icon outline="Star" class="w-4 h-4 text-base-content opacity-60 transition transform hover:scale-125 hover:text-base-content opacity-60"  />
+      x-transition:leave-end="opacity-0 transform scale-90"
+      class="absolute bottom-2 right-2"
+    >
+      <Icon
+        outline="Star"
+        class="w-4 h-4 text-base-content opacity-60 transition transform hover:scale-125 hover:text-base-content opacity-60"
+      />
     </div>
   </div>
 </LiveRedirect>

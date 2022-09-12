@@ -1,27 +1,36 @@
 <div @click.outside="labels = false" class="relative">
   <div
-    @click="labels = true"  
-    class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
+    @click="labels = true"
+    class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300"
+  >
     <Icon outline="Tag" class="w-4 h-4 text-base-content opacity-60" />
     <span class="text-base-content opacity-70 capitalize">
-      {l "label"}
+      {l("label")}
     </span>
   </div>
-  <div x-show="labels" class="absolute right-0 z-40 p-2 bg-base-100 border border-gray-200 rounded shadow-lg top-9 w-72">
+  <div
+    x-show="labels"
+    class="absolute right-0 z-40 p-2 bg-base-100 border border-gray-200 rounded shadow-lg top-9 w-72"
+  >
     <div class="flex items-center pb-2 text-sm text-base-content opacity-60 border-b">
-      <div class="flex-1 text-center">{l "labels"}</div>
+      <div class="flex-1 text-center">{l("labels")}</div>
       <span @click="labels = false">
-      <Icon outline="X" 
-        class="w-4 h-4 text-base-content opacity-60 cursor-pointer hover:text-base-content opacity-60" />
+        <Icon
+          outline="X"
+          class="w-4 h-4 text-base-content opacity-60 cursor-pointer hover:text-base-content opacity-60"
+        />
       </span>
     </div>
     <div class="flex flex-col mt-2 space-y-2">
-      <input class="block w-full h-8 max-w-lg px-2 bg-base-100 border border-gray-300 rounded-sm rounded-md shadow-sm focus:ring-secondary-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" placeholder="Search labels" />
+      <input
+        class="block w-full h-8 max-w-lg px-2 bg-base-100 border border-gray-300 rounded-sm rounded-md shadow-sm focus:ring-secondary-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"
+        placeholder="Search labels"
+      />
       <div class="">
-        <div class="my-2 text-xs font-medium tracking-wide text-base-content opacity-60 uppercase">{l "labels"}</div>
+        <div class="my-2 text-xs font-medium tracking-wide text-base-content opacity-60 uppercase">{l("labels")}</div>
         <div class="flex flex-col space-y-1">
-          <div class="flex-1 block w-full h-6 p-3 bg-green-400 rounded"></div>
-          <div class="flex-1 block w-full h-6 p-3 bg-blue-400 rounded"></div>
+          <div class="flex-1 block w-full h-6 p-3 bg-green-400 rounded" />
+          <div class="flex-1 block w-full h-6 p-3 bg-blue-400 rounded" />
         </div>
       </div>
     </div>

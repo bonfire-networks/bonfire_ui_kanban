@@ -1,36 +1,42 @@
-<div 
+<div
   x-data="{open: true}"
-  class="inline-block h-full mx-1 align-top rounded w-72 whitespace-nowrap flex-no-shrink">
-  <div
-    class="h-full">
+  class="inline-block h-full mx-1 align-top rounded w-72 whitespace-nowrap flex-no-shrink"
+>
+  <div class="h-full">
     <div
-      class="flex items-center h-32 p-2 space-x-2 rounded cursor-pointer bg-base-100 hover:bg-opacity-80" 
-      x-show="open == false" 
+      class="flex items-center h-32 p-2 space-x-2 rounded cursor-pointer bg-base-100 hover:bg-opacity-80"
+      x-show="open == false"
       @click="open = true"
     >
       <Icon solid="Plus" class="w-5 h-5 text-base-content" />
-      <span class="text-sm text-base-content">{l "Add another list"}</span>
+      <span class="text-sm text-base-content">{l("Add another list")}</span>
     </div>
     <div x-show="open == true" class="p-2 rounded bg-base-100">
       <form phx-submit="create_bin">
-      <label class="sr-only">{l "Add a title"}</label>
+        <label class="sr-only">{l("Add a title")}</label>
 
-      <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
-        <input name="input_tag" placeholder="Enter or select a list title..." class="tagify block w-full align-top resize-none border-base-200 bg-base-200 text-base-content" />
-        <select class="tagify hide">
-          {#for bin <- @suggested_bins}
-            <option class="text-base-content" value={bin.id}>{bin.name}</option>
-          {/for}
-        </select>
-        
-      </div>
+        <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
+          <input
+            name="input_tag"
+            placeholder="Enter or select a list title..."
+            class="tagify block w-full align-top resize-none border-base-200 bg-base-200 text-base-content"
+          />
+          <select class="tagify hide">
+            {#for bin <- @suggested_bins}
+              <option class="text-base-content" value={bin.id}>{bin.name}</option>
+            {/for}
+          </select>
+        </div>
 
-      <div class="flex items-center mt-2 space-x-2">
-        <button class="btn btn-primary">{l "Add list"}</button>
-        <span @click="open = false">
-          <Icon solid="X" class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60" />
-        </span>
-      </div>
+        <div class="flex items-center mt-2 space-x-2">
+          <button class="btn btn-primary">{l("Add list")}</button>
+          <span @click="open = false">
+            <Icon
+              solid="X"
+              class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60"
+            />
+          </span>
+        </div>
       </form>
     </div>
   </div>
