@@ -10,7 +10,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   prop selected_tab, :string, default: "publish"
 
-  declare_extension("Kanban", icon: "bi:kanban-fill")
+  declare_extension("Kanban", icon: "twemoji:clipboard")
 
   def mount(params, session, socket) do
     live_plug(params, session, socket, [
