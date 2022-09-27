@@ -12,7 +12,7 @@ defmodule Bonfire.UI.Kanban.Routes do
         pipe_through(:account_required)
       end
 
-      # pages anyone can view
+      # pages you need a user to view
       scope "/kanban", Bonfire.UI.Kanban do
         pipe_through(:browser)
         pipe_through(:user_required)
