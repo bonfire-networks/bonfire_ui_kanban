@@ -50,7 +50,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
   def processes(params \\ %{}, socket), do: liveql(socket, :processes, params)
 
   def do_handle_params(%{"tab" => "publish" = tab} = _params, _url, socket) do
-    current_user = current_user(socket)
+    current_user = current_user_required(socket)
 
     {:noreply,
      assign(socket,
@@ -72,7 +72,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
         _url,
         socket
       ) do
-    current_user = current_user(socket)
+    current_user = current_user_required(socket)
 
     {:noreply,
      assign(socket,
