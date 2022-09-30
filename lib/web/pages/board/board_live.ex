@@ -101,7 +101,8 @@ defmodule Bonfire.UI.Kanban.BoardLive do
        card_id: params[:card_id],
        board: Map.drop(process, [:intended_inputs, :intended_outputs]),
        task_tag_id: task_tag_id,
-       without_sidebar: true
+       without_sidebar: true,
+       showing_within: :board
      )}
   end
 

@@ -10,21 +10,7 @@
       <div class="relative flex flex-col h-full">
         <div class="flex justify-between m-4">
           <div class="flex items-center">
-            <LiveRedirect
-              to="/kanban"
-              class="flex items-center mr-2 space-x-2"
-              aria-label="Navigate to the previous page"
-            >
-              <span class="btn btn-circle btn-xs md:btn-sm">
-                <svg
-                  class="w-4 h-4 stroke-current"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-              </span>
-            </LiveRedirect>
+            <Bonfire.UI.Common.BackButtonLive showing_within={@showing_within} />
             <h3 class="mr-4 font-medium text-base-content">{e(@board, :name, "Untitled")}</h3>
             <div class="flex items-center rounded-sm bg-base-100 w-7 h-7 place-content-center">
               <Icon outline="Star" class="w-4 h-4 text-base-content" />
