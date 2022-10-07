@@ -4,7 +4,6 @@ import Config
 
 # You will almost certainly want to change at least some of these
 
-
 #### Basic configuration
 
 # You probably won't want to touch these. You might override some in
