@@ -4,11 +4,6 @@ import Config
 
 # You will almost certainly want to change at least some of these
 
-# include Phoenix web server boilerplate
-# import_config "bonfire_web_phoenix.exs"
-
-# include all used Bonfire extensions
-import_config "Bonfire.UI.Kanban.exs"
 
 #### Basic configuration
 
