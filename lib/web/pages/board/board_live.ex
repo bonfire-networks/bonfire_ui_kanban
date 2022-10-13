@@ -290,9 +290,9 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
   # def handle_event("show", id, socket) do
   # {:noreply,
-  #   push_redirect(
+  #   redirect_to(
   #     socket,
-  #     to: "/kanban/b/test/c/123"
+  #     "/kanban/b/test/c/123"
   #   )
   # }
   # end
