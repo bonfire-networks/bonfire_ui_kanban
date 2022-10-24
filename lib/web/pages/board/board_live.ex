@@ -243,7 +243,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
       scope_id: e(socket.assigns, :board_id, nil),
       rank_set: dropped_index
     })
-    |> Bonfire.Common.Repo.insert_or_ignore()
+    |> repo().insert_or_ignore()
 
     {:noreply, socket}
   end
@@ -283,7 +283,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
       scope_id: new_bin,
       rank_set: dropped_index
     })
-    |> Bonfire.Common.Repo.insert_or_ignore()
+    |> repo().insert_or_ignore()
 
     {:noreply, socket}
   end
