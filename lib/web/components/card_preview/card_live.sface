@@ -1,6 +1,6 @@
 <LivePatch
   opts={id: e(@card, :id, "")}
-  to={"/kanban/b/" <> @board_id <> "/c/" <> e(@card, :id, "")}
+  to={~p"/kanban/b/" <> @board_id <> "/c/" <> e(@card, :id, "")}
   class="block cursor-pointer draggable"
 >
   <div class="p-2 m-1 my-2 border-b rounded shadow-sm bg-base-300 border-base-200 hover:bg-base-200">

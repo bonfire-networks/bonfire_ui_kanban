@@ -8,7 +8,7 @@
         <!-- <span class="flex mt-1 text-sm text-base-content opacity-60">
           {l "Task in"}
           <LivePatch
-          to={"/list/"<> "test"}
+          to={~p"/list/"<> "test"}
           class="ml-1 underline inline_flex">
           test
           </LivePatch>
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <LivePatch to={"/kanban/b/" <> @board_id}>
+  <LivePatch to={~p"/kanban/b/" <> @board_id}>
     <span class="flex items-center w-8 h-8 rounded-full cursor-pointer place-content-center hover:bg-neutral hover:bg-opacity-30">
       <Icon solid="X" class="w-5 h-5 text-base-content opacity-60" />
     </span>
