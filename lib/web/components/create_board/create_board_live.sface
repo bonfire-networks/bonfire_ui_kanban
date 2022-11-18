@@ -44,7 +44,7 @@
             opts={autocomplete: "off"}
             submit="ValueFlows.Process:create"
           >
-            <input type="hidden" name="redirect_after" value="/kanban/b/">
+            <input type="hidden" name="redirect_after" value={~p"/kanban/b/"}>
             <!-- Create a title input form field -->
             <Field class="w-full p-2 mb-3 rounded-lg shadow-inner bg-blueGray-600" name={:name}>
               <Label class="block text-sm text-base-content opacity-60 font-regular">{l("Add a title")}</Label>
