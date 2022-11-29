@@ -1,0 +1,39 @@
+digraph "xref graph" {
+  "lib/integration.ex"
+  "lib/kanban/test_driven.ex"
+  "lib/web/components/bin/bin_live.ex"
+  "lib/web/components/bin/bin_live.ex" -> "lib/web/components/card_preview/card_live.ex" [label="(export)"]
+  "lib/web/components/bin/bin_live.ex" -> "lib/web/components/create_card/create_card_live.ex" [label="(export)"]
+  "lib/web/components/create_card/create_card_live.ex" -> "lib/integration.ex"
+  "lib/web/components/board/board_preview_live.ex"
+  "lib/web/components/card_modal/card_dates_live.ex"
+  "lib/web/components/card_modal/card_hero_live.ex"
+  "lib/web/components/card_modal/card_labels_live.ex"
+  "lib/web/components/card_modal/card_main_live.ex"
+  "lib/web/components/card_modal/card_members_live.ex"
+  "lib/web/components/card_modal/card_modal_live.ex"
+  "lib/web/components/card_modal/card_modal_live.ex" -> "lib/web/components/card_modal/card_hero_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_modal_live.ex" -> "lib/web/components/card_modal/card_main_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_modal_live.ex" -> "lib/web/components/card_modal/card_sidebar_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_sidebar_live.ex" -> "lib/web/components/card_modal/card_dates_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_sidebar_live.ex" -> "lib/web/components/card_modal/card_labels_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_sidebar_live.ex" -> "lib/web/components/card_modal/card_members_live.ex" [label="(export)"]
+  "lib/web/components/card_modal/card_sidebar_live.ex"
+  "lib/web/components/card_preview/card_live.ex"
+  "lib/web/components/create_bin/create_bin_live.ex"
+  "lib/web/components/create_board/create_board_live.ex"
+  "lib/web/components/create_card/create_card_live.ex"
+  "lib/web/components/navigation/navigation_live.ex"
+  "lib/web/components/navigation/navigation_live.ex" -> "lib/web/components/create_board/create_board_live.ex" [label="(export)"]
+  "lib/web/components/panel/panel_live.ex"
+  "lib/web/pages/board/board_live.ex"
+  "lib/web/pages/board/board_live.ex" -> "lib/integration.ex"
+  "lib/web/pages/board/board_live.ex" -> "lib/web/components/bin/bin_live.ex" [label="(export)"]
+  "lib/web/pages/board/board_live.ex" -> "lib/web/components/card_modal/card_modal_live.ex" [label="(export)"]
+  "lib/web/pages/board/board_live.ex" -> "lib/web/components/create_bin/create_bin_live.ex" [label="(export)"]
+  "lib/web/pages/board/board_live.ex" -> "lib/web/components/panel/panel_live.ex" [label="(export)"]
+  "lib/web/pages/home/home_live.ex"
+  "lib/web/pages/home/home_live.ex" -> "lib/web/components/board/board_preview_live.ex" [label="(export)"]
+  "lib/web/pages/home/home_live.ex" -> "lib/web/components/navigation/navigation_live.ex" [label="(export)"]
+  "lib/web/routes.ex"
+}
