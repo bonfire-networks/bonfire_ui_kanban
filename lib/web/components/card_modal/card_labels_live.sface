@@ -1,6 +1,6 @@
-<div @click.outside="labels = false" class="relative">
+<div x-on:click.outside="labels = false" class="relative">
   <div
-    @click="labels = true"
+    x-on:click="labels = true"
     class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300"
   >
     <Icon outline="Tag" class="w-4 h-4 text-base-content opacity-60" />
@@ -14,7 +14,7 @@
   >
     <div class="flex items-center pb-2 text-sm text-base-content opacity-60 border-b">
       <div class="flex-1 text-center">{l("labels")}</div>
-      <span @click="labels = false">
+      <span x-on:click="labels = false">
         <Icon
           outline="X"
           class="w-4 h-4 text-base-content opacity-60 cursor-pointer hover:text-base-content opacity-60"

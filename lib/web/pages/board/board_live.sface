@@ -17,7 +17,7 @@
             </div>
           </div>
           <div
-            @click="open_panel = true"
+            x-on:click="open_panel = true"
             class="items-center hover:bg-neutral hover:bg-opacity-30 -600 hidden text-base-content opacity-60 text-sm p-3 py-1.5 cursor-pointer rounded bg-base-100 bg-opacity-40 md:flex"
           >
             <svg

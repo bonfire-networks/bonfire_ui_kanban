@@ -13,6 +13,6 @@
       <LivePatch to={~p"/kanban/my-workspaces"}>{l("My workspaces")}</LivePatch>
     </li>
   </ul>
-  <button @click="open_create_board = true" class="btn btn-secondary btn-sm">{l("Create a board")}</button>
+  <button x-on:click="open_create_board = true" class="btn btn-secondary btn-sm">{l("Create a board")}</button>
   <Bonfire.UI.Kanban.CreateBoardLive />
 </div>
