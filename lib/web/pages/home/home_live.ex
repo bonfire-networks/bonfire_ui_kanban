@@ -5,25 +5,15 @@ defmodule Bonfire.UI.Kanban.HomeLive do
     schema: Bonfire.API.GraphQL.Schema,
     action: [mode: :internal]
 
-  alias Bonfire.UI.Me.LivePlugs
   alias Bonfire.Me.Users
 
   prop selected_tab, :string, default: "publish"
 
   declare_extension("Kanban", icon: "twemoji:clipboard")
 
-  def mount(params, session, socket) do
-    live_plug(params, session, socket, [
-      LivePlugs.LoadCurrentAccount,
-      LivePlugs.LoadCurrentUser,
-      Bonfire.UI.Common.LivePlugs.StaticChanged,
-      Bonfire.UI.Common.LivePlugs.Csrf,
-      Bonfire.UI.Common.LivePlugs.Locale,
-      &mounted/3
-    ])
-  end
+  on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
 
-  defp mounted(params, session, socket) do
+  def mount(params, session, socket) do
     {:ok,
      assign(
        socket,
