@@ -5,6 +5,7 @@
       <div class="flex items-center space-x-1">
         <Bonfire.UI.Common.AvatarLive
           :if={@card.receiver}
+          parent_id={"receiver-#{id(@card)}"}
           class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 bg-opacity-75 rounded-full"
           user={@card.receiver}
           alt={e(@card, :receiver, :name, "")}
@@ -15,6 +16,7 @@
       <div class="mb-1 text-xs font-medium tracking-wide text-base-content opacity-60 uppercase">{l("Assigned to")}</div>
       <div class="flex items-center space-x-1">
         <Bonfire.UI.Common.AvatarLive
+          parent_id={"provider-#{id(@card)}"}
           class="inline-block w-6 h-6 bg-base-100 bg-opacity-40 rounded-full"
           user={@card.provider}
           alt={e(@card, :provider, :name, "")}
