@@ -14,11 +14,11 @@
     <p>{e(@card, :name, "")}</p>
     <div class="flex items-center mt-2 space-x-3">
       <div class="flex items-center space-x-1">
-        <Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content text-opacity-70" />
+        <#Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content text-opacity-70" />
         <span class="text-xs text-base-content text-opacity-70">2</span>
       </div>
       <!-- <div class="flex items-center space-x-1 text-xs"> 
-      <Icon outline="CheckCircle" class="w-4 h-4 text-base-content opacity-70" />
+      <#Icon outline="CheckCircle" class="w-4 h-4 text-base-content opacity-70" />
       <span class="text-xs text-base-content opacity-70">3/5</span>
     </div> -->
       <span :if={@card.due} class="text-xs text-base-content text-opacity-70">

@@ -4,7 +4,7 @@
     x-on:click="open = true"
     class="flex p-2 m-1 mb-2 space-x-1 rounded cursor-pointer text-base-content hover:bg-base-300"
   >
-    <Icon solid="Plus" class="w-5 h-5 text-base-content" />
+    <#Icon solid="Plus" class="w-5 h-5 text-base-content" />
     <span>{l("Add a card")}</span>
   </div>
   <div x-show="open" class="m-2 mx-1">
@@ -25,7 +25,7 @@
       <div class="flex items-center mt-2 space-x-2">
         <button class="btn btn-primary">{l("Add card")}</button>
         <span x-on:click="open = false">
-          <Icon
+          <#Icon
             solid="X"
             class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60"
           />

@@ -16,8 +16,8 @@
       x-transition:leave-end="opacity-0 transform scale-90"
       class="absolute bottom-2 right-2"
     >
-      <Icon
-        outline="Star"
+      <#Icon
+        iconify="material-symbols:star-outline-rounded"
         class="w-4 h-4 text-base-content opacity-60 transition transform hover:scale-125 hover:text-base-content opacity-60"
       />
     </div>

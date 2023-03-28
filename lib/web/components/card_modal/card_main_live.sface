@@ -22,7 +22,7 @@
           alt={e(@card, :provider, :name, "")}
         />
         <!-- <div class="flex items-center bg-base-100 rounded-full cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300 w-7 h-7 place-content-center">
-          <Icon outline="Plus" class="w-5 h-5 text-base-content opacity-60" />
+          <#Icon outline="Plus" class="w-5 h-5 text-base-content opacity-60" />
         </div> -->
       </div>
     </div>
@@ -41,7 +41,7 @@
   </div>
   <div class="mt-6">
     <div class="flex items-center space-x-2">
-      <Icon outline="Menu-alt-2" class="w-4 h-4 text-base-content opacity-70" />
+      <#Icon outline="Menu-alt-2" class="w-4 h-4 text-base-content opacity-70" />
       <div class="text-sm font-semibold text-base-content opacity-70 capitalize">{l("description")}</div>
     </div>
     <div class="mt-1 text-sm prose-sm prose text-base-content opacity-70">{e(@card, :note, "")}</div>
@@ -49,7 +49,7 @@
 
   <div class="mt-6">
     <div class="flex items-center space-x-2">
-      <Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content opacity-70" />
+      <#Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content opacity-70" />
       <div class="text-sm font-semibold text-base-content opacity-70 capitalize">{l("Discussion")}</div>
     </div>
   </div>

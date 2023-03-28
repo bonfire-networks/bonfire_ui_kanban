@@ -8,7 +8,7 @@
       x-show="open == false"
       x-on:click="open = true"
     >
-      <Icon solid="Plus" class="w-5 h-5 text-base-content" />
+      <#Icon solid="Plus" class="w-5 h-5 text-base-content" />
       <span class="text-sm text-base-content">{l("Add another list")}</span>
     </div>
     <div x-show="open == true" class="p-2 rounded bg-base-100">
@@ -31,7 +31,7 @@
         <div class="flex items-center mt-2 space-x-2">
           <button class="btn btn-primary">{l("Add list")}</button>
           <span x-on:click="open = false">
-            <Icon
+            <#Icon
               solid="X"
               class="w-5 h-5 cursor-pointer text-base-content text-opacity-80 hover:text-opacity-60"
             />

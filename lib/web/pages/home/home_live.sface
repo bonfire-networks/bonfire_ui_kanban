@@ -5,7 +5,7 @@
     {#match "discover"}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Icon outline="Star" class="w-5 h-5 text-base-content" />
+          <#Icon iconify="material-symbols:star-outline-rounded" class="w-5 h-5 text-base-content" />
           <span class="block text-base font-medium text-base-content">{l("All boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
@@ -17,7 +17,7 @@
     {#match "my-workspaces"}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Icon outline="Star" class="w-5 h-5 text-base-content" />
+          <#Icon iconify="material-symbols:star-outline-rounded" class="w-5 h-5 text-base-content" />
           <span class="block text-base font-medium text-base-content">{l("Bookmarked boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
@@ -28,7 +28,7 @@
         </div>
 
         <div class="flex items-center mt-4 mb-3 space-x-2">
-          <Icon outline="ViewBoards" class="w-5 h-5 text-base-content" />
+          <#Icon outline="ViewBoards" class="w-5 h-5 text-base-content" />
           <span class="block text-base font-medium text-base-content">{l("Active boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
@@ -43,7 +43,7 @@
     {#match _}
       <div class="w-full mt-4">
         <div class="flex items-center mb-3 space-x-2">
-          <Icon outline="Star" class="w-5 h-5 text-base-content" />
+          <#Icon iconify="material-symbols:star-outline-rounded" class="w-5 h-5 text-base-content" />
           <span class="block text-base font-medium text-base-content">{l("All boards")}</span>
         </div>
         <div class="grid w-full grid-cols-3 gap-4">
