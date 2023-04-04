@@ -1,5 +1,5 @@
 <div
-  id={"bin:#{@bin.id}"}
+  id={"bin-#{@bin.id}"}
   class="inline-block h-full mx-1 align-top rounded draggable w-72 whitespace-nowrap flex-no-shrink"
 >
   <div class="relative flex flex-col max-h-full whitespace-normal rounded bg-base-100">
