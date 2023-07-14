@@ -9,7 +9,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   prop selected_tab, :string, default: "publish"
 
-  declare_extension("Kanban", icon: "twemoji:clipboard")
+  declare_extension("Kanban", icon: "twemoji:clipboard", emoji: "📋")
 
   on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
 
