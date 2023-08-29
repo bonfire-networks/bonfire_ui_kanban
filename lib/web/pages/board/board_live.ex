@@ -19,7 +19,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
 
   def mount(%{"id" => id} = params, _session, socket) do
-    current_user = current_user(socket)
+    current_user = current_user(socket.assigns)
 
     task_tag_id =
       ValueFlows.Util.maybe_classification_id(
