@@ -16,7 +16,7 @@
       <HiddenInput :if={@board_id} name="output_of_id" value={e(@board_id, "")} />
       <HiddenInput name="classified_as[]" value={Bonfire.UI.Kanban.Integration.remote_tag_id()} />
       <HiddenInput name="classified_as[]" value={@bin_id} />
-      <!-- <input name="name" placeholder="Enter a title" class="block w-full h-8 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" /> -->
+      {!-- <input name="name" placeholder="Enter a title" class="block w-full h-8 align-top border-gray-300 rounded-md shadow-sm resize-none focus:ring-secondary-500 focus:border-indigo-500 sm:text-sm" /> --}
       <textarea
         name="name"
         placeholder="Enter a title"

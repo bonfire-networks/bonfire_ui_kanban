@@ -17,23 +17,23 @@
       <Bonfire.UI.Kanban.CardMembersLive />
       <Bonfire.UI.Kanban.CardLabelsLive />
       <Bonfire.UI.Kanban.CardDatesLive />
-      <!-- <div class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
+      {!-- <div class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
         <#Icon outline="CheckCircle" class="w-4 h-4 text-base-content opacity-60" />
         <span class="text-base-content opacity-70 capitalize">
           {l "checklist"}
         </span>
-      </div> -->
+      </div> --}
     </div>
   </div>
   <div class="">
     <div class="mb-1 text-xs font-medium tracking-wide text-base-content opacity-60 uppercase">{l("Actions")}</div>
     <div class="flex flex-col space-y-2">
-      <!-- <div class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
+      {!-- <div class="flex items-center h-8 px-3 space-x-2 text-xs text-base-content opacity-70 bg-base-100 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
         <#Icon outline="ArrowRight" class="w-4 h-4 text-base-content opacity-60" />
         <span class="text-base-content opacity-70 capitalize">
           {l "move"}
         </span>
-      </div> -->
+      </div> --}
       <div class="flex items-center h-8 pl-3 pr-1 space-x-2 text-xs text-base-content opacity-70 bg-base-100 bg-opacity-40 rounded-sm cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300">
         <#Icon outline="Eye" class="w-4 h-4 text-base-content opacity-60" />
         <span class="flex-1 text-base-content opacity-70 capitalize">

@@ -31,9 +31,9 @@
       class="min-h-full mx-auto mt-6 overflow-hidden text-left align-bottom transition-all transform bg-base-100 rounded-lg shadow-xl h-modal w-center max-w-screen-md"
     >
       <section class="p-4">
-        <!-- Card Title and escape -->
+        {!-- Card Title and escape --}
         <Bonfire.UI.Kanban.CardHeroLive card={@card} board_id={@board_id} />
-        <!-- Card layout -->
+        {!-- Card layout --}
         <div class="flex mt-4">
           <Bonfire.UI.Kanban.CardMainLive card={@card} board_id={@board_id} />
           <Bonfire.UI.Kanban.CardSidebarLive card={@card} board_id={@board_id} />

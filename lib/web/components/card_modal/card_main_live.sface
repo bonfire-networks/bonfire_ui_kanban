@@ -21,9 +21,9 @@
           user={@card.provider}
           alt={e(@card, :provider, :name, "")}
         />
-        <!-- <div class="flex items-center bg-base-100 rounded-full cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300 w-7 h-7 place-content-center">
+        {!-- <div class="flex items-center bg-base-100 rounded-full cursor-pointer hover:bg-neutral hover:bg-opacity-30 -300 w-7 h-7 place-content-center">
           <#Icon outline="Plus" class="w-5 h-5 text-base-content opacity-60" />
-        </div> -->
+        </div> --}
       </div>
     </div>
     <div class="flex-1">

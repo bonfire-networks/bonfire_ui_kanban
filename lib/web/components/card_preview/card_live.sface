@@ -4,7 +4,7 @@
   class="block cursor-pointer draggable"
 >
   <div class="p-2 m-1 my-2 border-b rounded shadow-sm bg-base-300 border-base-200 hover:bg-base-200">
-    <!-- LABEL -->
+    {!-- LABEL --}
     <div
       :if={!e(@card, :finished, nil) && !e(@card, :provider, nil)}
       class="w-12 h-2 p-1 mb-1 bg-blue-400 rounded-full"
@@ -17,10 +17,10 @@
         <#Icon outline="Chat-alt-2" class="w-4 h-4 text-base-content text-opacity-70" />
         <span class="text-xs text-base-content text-opacity-70">2</span>
       </div>
-      <!-- <div class="flex items-center space-x-1 text-xs"> 
+      {!-- <div class="flex items-center space-x-1 text-xs"> 
       <#Icon outline="CheckCircle" class="w-4 h-4 text-base-content opacity-70" />
       <span class="text-xs text-base-content opacity-70">3/5</span>
-    </div> -->
+    </div> --}
       <span :if={@card.due} class="text-xs text-base-content text-opacity-70">
         Due {e(@card, :due, "")}
       </span>

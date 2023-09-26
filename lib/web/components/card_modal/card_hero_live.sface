@@ -5,14 +5,14 @@
         <div class="text-xl font-bold text-base-content opacity-80">
           {e(@card, :name, "Untitled card")}
         </div>
-        <!-- <span class="flex mt-1 text-sm text-base-content opacity-60">
+        {!-- <span class="flex mt-1 text-sm text-base-content opacity-60">
           {l "Task in"}
           <LivePatch
           to={~p"/list/"<> "test"}
           class="ml-1 underline inline_flex">
           test
           </LivePatch>
-        </span> -->
+        </span> --}
       </div>
     </div>
   </div>
