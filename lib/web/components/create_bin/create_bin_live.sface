@@ -16,6 +16,7 @@
         <label class="sr-only">{l("Add a title")}</label>
 
         <div id="create-bin" phx-hook="InputOrSelectOne" phx-update="ignore">
+          <!-- TODO: use live_select -->
           <input
             name="input_tag"
             placeholder="Enter or select a list title..."
