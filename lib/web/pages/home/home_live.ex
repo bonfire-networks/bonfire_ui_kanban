@@ -7,7 +7,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   alias Bonfire.Me.Users
 
-  prop selected_tab, :string, default: "publish"
+  prop selected_tab, :any, default: "publish"
 
   declare_extension("Kanban", icon: "twemoji:clipboard", emoji: "📋")
 
