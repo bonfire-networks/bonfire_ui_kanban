@@ -1,4 +1,4 @@
-<LiveRedirect to={~p"/kanban/b/" <> e(@board, :id, "404")}>
+<LinkLive to={~p"/kanban/b/" <> e(@board, :id, "404")}>
   <div
     x-data="{toggle_like : false}"
     @mouseover="toggle_like = true"
@@ -22,4 +22,4 @@
       />
     </div>
   </div>
-</LiveRedirect>
+</LinkLive>

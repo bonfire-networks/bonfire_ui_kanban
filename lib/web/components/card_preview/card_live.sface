@@ -1,4 +1,4 @@
-<LivePatch
+<LinkPatchLive
   opts={id: e(@card, :id, "")}
   to={~p"/kanban/b/" <> @board_id <> "/c/" <> e(@card, :id, "")}
   class="block cursor-pointer draggable"
@@ -42,4 +42,4 @@
       />
     </div>
   </div>
-</LivePatch>
+</LinkPatchLive>

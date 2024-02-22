@@ -6,11 +6,11 @@
 >
   <ul class="flex items-stretch flex-1 w-full">
     <li class={bordered: @page == "discover"}>
-      <LivePatch to={~p"/kanban/discover"}>{l("Discover")}</LivePatch>
+      <LinkPatchLive to={~p"/kanban/discover"}>{l("Discover")}</LinkPatchLive>
     </li>
 
     <li class={bordered: @page == "my-workspaces"}>
-      <LivePatch to={~p"/kanban/my-workspaces"}>{l("My workspaces")}</LivePatch>
+      <LinkPatchLive to={~p"/kanban/my-workspaces"}>{l("My workspaces")}</LinkPatchLive>
     </li>
   </ul>
   <button x-on:click="open_create_board = true" class="btn btn-secondary btn-sm">{l("Create a board")}</button>
