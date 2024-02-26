@@ -175,7 +175,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   def process(params \\ @default_filters, socket),
     do: liveql(socket, :process, Map.merge(@default_filters, params))
 
-  def do_handle_event(
+  def handle_event(
         "search",
         %{"key" => "Enter", "value" => search_term} = attrs,
         %{assigns: %{board_id: board_id}} = socket
@@ -189,11 +189,11 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply, assign(socket, process: process)}
   end
 
-  def do_handle_event("search", attrs, socket) do
+  def handle_event("search", attrs, socket) do
     {:noreply, socket}
   end
 
-  def do_handle_event("create_bin", %{"input_tag" => input_tag} = attrs, socket) do
+  def handle_event("create_bin", %{"input_tag" => input_tag} = attrs, socket) do
     debug(input_tag)
 
     with {:ok, [%{"text" => label, "value" => id}]} <- Jason.decode(input_tag) do
@@ -216,7 +216,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     end
   end
 
-  def do_handle_event(
+  def handle_event(
         "dropped",
         %{
           "dragged_id" => "bin:" <> dragged_id,
@@ -238,7 +238,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply, socket}
   end
 
-  def do_handle_event(
+  def handle_event(
         "dropped",
         %{
           "dragged_id" => dragged_id,
@@ -278,7 +278,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply, socket}
   end
 
-  # def do_handle_event("show", id, socket) do
+  # def handle_event("show", id, socket) do
   # {:noreply,
   #   redirect_to(
   #     socket,
@@ -287,21 +287,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   # }
   # end
 
-  def handle_event(
-        action,
-        attrs,
-        socket
-      ),
-      do:
-        Bonfire.UI.Common.LiveHandlers.handle_event(
-          action,
-          attrs,
-          socket,
-          __MODULE__,
-          &do_handle_event/3
-        )
-
-  def do_handle_params(%{"card_id" => id} = _params, _uri, socket) do
+  def handle_params(%{"card_id" => id} = _params, _uri, socket) do
     debug(card_id: id)
 
     {:noreply,
@@ -311,11 +297,11 @@ defmodule Bonfire.UI.Kanban.BoardLive do
      )}
   end
 
-  def do_handle_params(_, _uri, socket) do
+  def handle_params(_, _uri, socket) do
     {:noreply, assign(socket, card_id: nil, selected_card: nil)}
   end
 
-  def do_handle_params(
+  def handle_params(
         %{"filter" => status},
         _,
         %{assigns: %{process: process}} = socket
@@ -325,31 +311,5 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply, assign(socket, process: process)}
   end
 
-  def do_handle_params(params, attrs, socket), do: {:noreply, socket}
-
-  def handle_params(params, uri, socket),
-    do:
-      Bonfire.UI.Common.LiveHandlers.handle_params(
-        params,
-        uri,
-        socket,
-        __MODULE__
-      )
-
-  def handle_info(info, socket),
-    do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
-
-  def handle_event(
-        action,
-        attrs,
-        socket
-      ),
-      do:
-        Bonfire.UI.Common.LiveHandlers.handle_event(
-          action,
-          attrs,
-          socket,
-          __MODULE__,
-          &do_handle_event/3
-        )
+  def handle_params(params, attrs, socket), do: {:noreply, socket}
 end

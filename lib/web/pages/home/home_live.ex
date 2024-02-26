@@ -39,7 +39,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
   """
   def processes(params \\ %{}, socket), do: liveql(socket, :processes, params)
 
-  def do_handle_params(%{"tab" => "publish" = tab} = _params, _url, socket) do
+  def handle_params(%{"tab" => "publish" = tab} = _params, _url, socket) do
     current_user = current_user_required!(socket)
 
     {:noreply,
@@ -48,7 +48,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
      )}
   end
 
-  def do_handle_params(%{"tab" => "discover" = tab} = _params, _url, socket) do
+  def handle_params(%{"tab" => "discover" = tab} = _params, _url, socket) do
     current_user = current_user(socket.assigns)
 
     {:noreply,
@@ -57,7 +57,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
      )}
   end
 
-  def do_handle_params(
+  def handle_params(
         %{"tab" => "my-workspaces" = tab} = _params,
         _url,
         socket
@@ -70,14 +70,14 @@ defmodule Bonfire.UI.Kanban.HomeLive do
      )}
   end
 
-  def do_handle_params(%{"tab" => tab} = _params, _url, socket) do
+  def handle_params(%{"tab" => tab} = _params, _url, socket) do
     {:noreply,
      assign(socket,
        selected_tab: tab
      )}
   end
 
-  def do_handle_params(%{} = _params, _url, socket) do
+  def handle_params(%{} = _params, _url, socket) do
     current_user = current_user(socket.assigns)
 
     {:noreply,
@@ -85,31 +85,4 @@ defmodule Bonfire.UI.Kanban.HomeLive do
        selected_tab: "discover"
      )}
   end
-
-  def handle_params(params, uri, socket),
-    do:
-      Bonfire.UI.Common.LiveHandlers.handle_params(
-        params,
-        uri,
-        socket,
-        __MODULE__,
-        &do_handle_params/3
-      )
-
-  def handle_info(info, socket),
-    do: Bonfire.UI.Common.LiveHandlers.handle_info(info, socket, __MODULE__)
-
-  def handle_event(
-        action,
-        attrs,
-        socket
-      ),
-      do:
-        Bonfire.UI.Common.LiveHandlers.handle_event(
-          action,
-          attrs,
-          socket,
-          __MODULE__
-          # &do_handle_event/3
-        )
 end
