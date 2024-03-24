@@ -9,7 +9,14 @@ defmodule Bonfire.UI.Kanban.HomeLive do
 
   prop selected_tab, :any, default: "publish"
 
-  declare_extension("Kanban", icon: "twemoji:clipboard", emoji: "📋")
+  declare_extension("Kanban",
+    icon: "twemoji:clipboard",
+    emoji: "📋",
+    description:
+      l(
+        "Collaborative tools for decentralized project coordination, such as task lists and Kanban."
+      )
+  )
 
   on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
 
