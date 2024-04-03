@@ -10,7 +10,7 @@ defmodule Bonfire.UI.Kanban.HomeLive do
   prop selected_tab, :any, default: "publish"
 
   declare_extension("Kanban",
-    icon: "twemoji:clipboard",
+    icon: "ph:kanban-fill",
     emoji: "📋",
     description:
       l(
