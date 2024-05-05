@@ -17,7 +17,7 @@ defmodule Bonfire.UI.Kanban.ChannelCase do
 
   use ExUnit.CaseTemplate
 
-  import Bonfire.UI.Kanban.Integration
+  import Bonfire.UI.Kanban
 
   using do
     quote do

@@ -13,7 +13,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   alias Bonfire.Me.Users
   alias Bonfire.UI.Me.CreateUserLive
 
-  # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.Integration.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
+  # @default_filters %{intent_filter: %{"classified_as"=> [Bonfire.UI.Kanban.remote_tag_id]}} # TODO: activate this filter to filter any non-Tasks
   @default_filters %{}
 
   on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
@@ -24,7 +24,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     task_tag_id =
       ValueFlows.Util.maybe_classification_id(
         current_user,
-        Bonfire.UI.Kanban.Integration.remote_tag_id()
+        Bonfire.UI.Kanban.remote_tag_id()
       )
 
     process = process(%{id: id}, socket) |> IO.inspect()
@@ -99,7 +99,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   def upstream_tag_id(current_user, tag_slug) do
     ValueFlows.Util.maybe_classification_id(
       current_user,
-      "#{Bonfire.UI.Kanban.Integration.remote_tag_prefix()}#{tag_slug}"
+      "#{Bonfire.UI.Kanban.remote_tag_prefix()}#{tag_slug}"
     )
   end
 

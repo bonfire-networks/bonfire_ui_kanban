@@ -38,7 +38,7 @@ defmodule Bonfire.UI.Kanban.ConnCase do
   end
 
   setup tags do
-    import Bonfire.UI.Kanban.Integration
+    import Bonfire.UI.Kanban
 
     Bonfire.Common.Test.Interactive.setup_test_repo(tags)
 

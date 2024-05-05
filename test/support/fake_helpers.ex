@@ -6,5 +6,5 @@ defmodule Bonfire.UI.Kanban.Test.FakeHelpers do
 
   import ExUnit.Assertions
 
-  import Bonfire.UI.Kanban.Integration
+  import Bonfire.UI.Kanban
 end
