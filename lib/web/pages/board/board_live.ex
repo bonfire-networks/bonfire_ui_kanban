@@ -199,7 +199,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     with {:ok, [%{"text" => label, "value" => id}]} <- Jason.decode(input_tag) do
       debug(id, "create_bin ID")
 
-      if is_ulid?(id) do
+      if is_uid?(id) do
         {:noreply,
          assign(socket,
            bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}]
