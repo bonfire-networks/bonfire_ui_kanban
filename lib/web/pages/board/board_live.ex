@@ -19,7 +19,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
   on_mount {LivePlugs, [Bonfire.UI.Me.LivePlugs.LoadCurrentUser]}
 
   def mount(%{"id" => id} = params, _session, socket) do
-    current_user = current_user(socket.assigns)
+    current_user = current_user(assigns(socket))
 
     task_tag_id =
       ValueFlows.Util.maybe_classification_id(
@@ -202,7 +202,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
       if is_uid?(id) do
         {:noreply,
          assign(socket,
-           bins: e(socket.assigns, :bins, []) ++ [%{id: id, name: label, cards: []}]
+           bins: e(assigns(socket), :bins, []) ++ [%{id: id, name: label, cards: []}]
          )}
       else
         # TODO: create new?
@@ -230,7 +230,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     # implementation for bin ordering
     Bonfire.Data.Assort.Ranked.changeset(%{
       item_id: dragged_id,
-      scope_id: e(socket.assigns, :board_id, nil),
+      scope_id: e(assigns(socket), :board_id, nil),
       rank_set: dropped_index
     })
     |> repo().insert_or_ignore()
@@ -257,10 +257,10 @@ defmodule Bonfire.UI.Kanban.BoardLive do
 
     # add the bin as a tag (and remove the previous one)
     if previous_bin != new_bin do
-      existing_tags = e(socket.assigns, :all_cards, dragged_id, :tags, [])
+      existing_tags = e(assigns(socket), :all_cards, dragged_id, :tags, [])
 
       new_tags =
-        [e(socket.assigns, :task_tag_id, nil), new_bin] ++
+        [e(assigns(socket), :task_tag_id, nil), new_bin] ++
           Enum.reject(existing_tags, &(&1.id == previous_bin))
 
       # debug(new_tags, "new_tags")
@@ -293,7 +293,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
     {:noreply,
      assign(socket,
        card_id: id,
-       selected_card: e(socket.assigns, :all_cards, id, nil)
+       selected_card: e(assigns(socket), :all_cards, id, nil)
      )}
   end
 
