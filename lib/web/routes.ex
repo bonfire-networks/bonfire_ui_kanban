@@ -1,5 +1,5 @@
 defmodule Bonfire.UI.Kanban.Routes do
-  def declare_routes, do: "kanban"
+  @behaviour Bonfire.UI.Common.RoutesModule
 
   defmacro __using__(_) do
     quote do
