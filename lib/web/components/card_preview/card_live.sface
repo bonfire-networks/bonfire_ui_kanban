@@ -28,14 +28,14 @@
     <div class="grid mt-1 justify-items-end">
       <Bonfire.UI.Common.AvatarLive
         :if={@card.receiver}
-        parent_id={"receiver-#{id(@card)}"}
+        parent_id={deterministic_dom_id(__MODULE__, id(@card), "receiver", nil)}
         class="inline-block w-6 h-6 bg-base-100 rounded-full"
         user={@card.receiver}
         alt={e(@card, :receiver, :name, "")}
       />
       <Bonfire.UI.Common.AvatarLive
         :if={@card.provider}
-        parent_id={"provider-#{id(@card)}"}
+        parent_id={deterministic_dom_id(__MODULE__, id(@card), "provider", nil)}
         class="inline-block w-6 h-6 bg-base-100 rounded-full"
         user={@card.provider}
         alt={e(@card, :provider, :name, "")}
