@@ -27,7 +27,7 @@ defmodule Bonfire.UI.Kanban.BoardLive do
         Bonfire.UI.Kanban.remote_tag_id()
       )
 
-    process = process(%{id: id}, socket) |> IO.inspect()
+    process = process(%{id: id}, socket)
 
     # |> IO.inspect
     all_cards =
