@@ -264,7 +264,8 @@ defmodule Bonfire.UI.Kanban.BoardLive do
           Enum.reject(existing_tags, &(&1.id == previous_bin))
 
       # debug(new_tags, "new_tags")
-      ValueFlows.Util.try_tag_thing(current_user_required!(socket), dragged_id, new_tags)
+      # checked: only someone who may tag the card can move it to another bin
+      maybe_apply(Bonfire.Tag, :maybe_tag, [current_user_required!(socket), dragged_id, new_tags])
     end
 
     # save the order
